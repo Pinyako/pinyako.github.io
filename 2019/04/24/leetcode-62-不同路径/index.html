@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="题目描述给定一个整数数组 nums 和一个目标值 target  请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。  你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 给定 nums = [2, 7, 11, 15], target = 9  因为 nums[0] + nums[1] = 2 + 7 = 9 所以返回 [0, 1] 题目分析这道">
-<meta name="keywords" content="C++,Leetcode,Hashmap">
+  <meta name="description" content="题目描述一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？  例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：m 和 n 的值均不超过 100。 示例 1: 输入: m = 3, n = 2 输出: 3 解释:从左上角开">
+<meta name="keywords" content="C++,Leetcode,动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 1. 两数之和">
-<meta property="og:url" content="http://yoursite.com/2019/04/17/Leetcode-1-两数之和/index.html">
+<meta property="og:title" content="leetcode-62- 不同路径">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/leetcode-62-不同路径/index.html">
 <meta property="og:site_name" content="Pinyako&#39;s blog">
-<meta property="og:description" content="题目描述给定一个整数数组 nums 和一个目标值 target  请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。  你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 给定 nums = [2, 7, 11, 15], target = 9  因为 nums[0] + nums[1] = 2 + 7 = 9 所以返回 [0, 1] 题目分析这道">
+<meta property="og:description" content="题目描述一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？  例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：m 和 n 的值均不超过 100。 示例 1: 输入: m = 3, n = 2 输出: 3 解释:从左上角开">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-24T03:20:12.057Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/leetcode-62-不同路径/leetcode-62-不同路径/2019-04-24-10-01-34.png">
+<meta property="og:updated_time" content="2019-04-24T02:15:23.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 1. 两数之和">
-<meta name="twitter:description" content="题目描述给定一个整数数组 nums 和一个目标值 target  请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。  你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 给定 nums = [2, 7, 11, 15], target = 9  因为 nums[0] + nums[1] = 2 + 7 = 9 所以返回 [0, 1] 题目分析这道">
+<meta name="twitter:title" content="leetcode-62- 不同路径">
+<meta name="twitter:description" content="题目描述一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？  例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：m 和 n 的值均不超过 100。 示例 1: 输入: m = 3, n = 2 输出: 3 解释:从左上角开">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/24/leetcode-62-不同路径/leetcode-62-不同路径/2019-04-24-10-01-34.png">
 
 
 
@@ -115,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/17/Leetcode-1-两数之和/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/leetcode-62-不同路径/">
 
 
 
@@ -125,7 +127,7 @@
   };
 </script>
 
-  <title>Leetcode 1. 两数之和 | Pinyako's blog</title>
+  <title>leetcode-62- 不同路径 | Pinyako's blog</title>
   
 
 
@@ -342,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pinyako.github.io/2019/04/17/Leetcode-1-两数之和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pinyako.github.io/2019/04/24/leetcode-62-不同路径/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pinyako">
@@ -359,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 1. 两数之和
+          <h1 class="post-title" itemprop="name headline">leetcode-62- 不同路径
 
               
             
@@ -385,24 +387,12 @@
                 
               
 
-              <time title="创建时间：2019-04-17 23:11:44" itemprop="dateCreated datePublished" datetime="2019-04-17T23:11:44+08:00">2019-04-17</time>
+              <time title="创建时间：2019-04-24 09:56:49 / 修改时间：10:15:23" itemprop="dateCreated datePublished" datetime="2019-04-24T09:56:49+08:00">2019-04-24</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-24 11:20:12" itemprop="dateModified" datetime="2019-04-24T11:20:12+08:00">2019-04-24</time>
               
             
           </span>
@@ -454,19 +444,31 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><pre><code>给定一个整数数组 nums 和一个目标值 target
-
-请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
-
-你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
-</code></pre><p><strong>示例:</strong></p>
-<pre><code>给定 nums = [2, 7, 11, 15], target = 9
-
-因为 nums[0] + nums[1] = 2 + 7 = 9
-所以返回 [0, 1]
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题可以硬核的用两个循环对每两个元素相加求下标, 但是时间复杂度会到O($n^2$), 所以使用哈希表来存储.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> completion;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m; <span class="comment">// 哈希表, 牺牲空间复杂度获得低时间复杂度.</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); ++i) &#123; <span class="comment">// 遍历nums数组.</span></span><br><span class="line">            completion = target - nums[i]; <span class="comment">// completion 为与nums[i]相加获得target的数.</span></span><br><span class="line">            <span class="keyword">if</span>(m.find(nums[i]) == m.end()) &#123; <span class="comment">// 之前没有能和nums[i]相加得到target的元素.</span></span><br><span class="line">                m[completion] = i; <span class="comment">// 用哈希表保存completion和nums[i]的位置.</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                res.push_back(m[nums[i]]); <span class="comment">// 压入之前的位置</span></span><br><span class="line">                res.push_back(i); <span class="comment">// 压入找到时的位置</span></span><br><span class="line">                <span class="keyword">return</span> res; <span class="comment">// 返回答案</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res; <span class="comment">// 没有找到时返回空数组</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。</p>
+<p>问总共有多少条不同的路径？</p>
+<p><img src="leetcode-62-不同路径/2019-04-24-10-01-34.png" alt="Image"></p>
+<p>例如，上图是一个7 x 3 的网格。有多少可能的路径？</p>
+<p>说明：m 和 n 的值均不超过 100。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入: m = 3, n = 2
+输出: 3
+</code></pre><p>解释:<br>从左上角开始，总共有 3 条路径可以到达右下角。</p>
+<ol>
+<li>向右 -&gt; 向右 -&gt; 向下</li>
+<li>向右 -&gt; 向下 -&gt; 向右</li>
+<li>向下 -&gt; 向右 -&gt; 向右</li>
+</ol>
+<p><strong>示例 2:</strong></p>
+<pre><code>输入: m = 7, n = 3
+输出: 28
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>到达(m, n)点的路径数应等于到达(m, n-1) + (m-1, n)的路径数和. 由此得出状态转移方程:</p>
+<script type="math/tex; mode=display">dp(m, n)=
+\begin{cases}
+1& \text{m == 1 || n == 1}\\\\
+dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
+\end{cases}</script><p>但是用递归解决这个问题在m, n较大时会存在效率低的问题, 因为有些m, n的情况被重复计算, 这样我们可以使用一个数组来存放计算结果, 在遇到重复计算时便可以从数组之中直接得到值.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">10000</span>][<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">// 初始化所有元素为0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">1</span> || n == <span class="number">1</span>) &#123; <span class="comment">// 在m == 1 或者 n == 1 时返回1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(num[m][n] != <span class="number">0</span>) &#123; <span class="comment">// 如果num[m][n]存在, 则说明已经运算过此情况, 直接从数组中获取结果</span></span><br><span class="line">                <span class="keyword">return</span> num[m][n];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                num[m][n] = uniquePaths(m<span class="number">-1</span>, n) + uniquePaths(m, n<span class="number">-1</span>);</span><br><span class="line">                <span class="comment">// 将结果存在num[m][n]中后返回num[m][n]</span></span><br><span class="line">                <span class="keyword">return</span> num[m][n];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -493,7 +495,7 @@
           
             <a href="/pinyako.github.io/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/pinyako.github.io/tags/Hashmap/" rel="tag"># Hashmap</a>
+            <a href="/pinyako.github.io/tags/动态规划/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -506,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/pinyako.github.io/2019/04/17/Leetcode-27-移除元素/" rel="next" title="Leetcode 27. 移除元素">
-                <i class="fa fa-chevron-left"></i> Leetcode 27. 移除元素
+              <a href="/pinyako.github.io/2019/04/20/Leetcode-191-位1的个数/" rel="next" title="位1的个数">
+                <i class="fa fa-chevron-left"></i> 位1的个数
               </a>
             
           </div>
@@ -516,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/pinyako.github.io/2019/04/17/Leetcode-292-Nim游戏/" rel="prev" title="Leetcode 292. Nim游戏">
-                Leetcode 292. Nim游戏 <i class="fa fa-chevron-right"></i>
+              <a href="/pinyako.github.io/2019/04/24/leetcode-100-相同的树/" rel="prev" title="leetcode-100-相同的树">
+                leetcode-100-相同的树 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
