@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 17:53:50" itemprop="dateModified" datetime="2019-04-29T17:53:50+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:37:45" itemprop="dateModified" datetime="2019-04-29T18:37:45+08:00">2019-04-29</time>
               
             
           </span>
@@ -457,7 +457,22 @@
       
         
           
-            
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
+<p>你可以假设数组中无重复元素。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入: [1,3,5,6], 5
+输出: 2
+</code></pre><p><strong>示例 2:</strong></p>
+<pre><code>输入: [1,3,5,6], 2
+输出: 1
+</code></pre><p><strong>示例 3:</strong></p>
+<pre><code>输入: [1,3,5,6], 7
+输出: 4
+</code></pre><p><strong>示例 4:</strong></p>
+<pre><code>输入: [1,3,5,6], 0
+输出: 0
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>由于是有序数组, 则先比较目标数字与两侧极值的, 确定目标数字是否在数组之中, 而后从第一个元素开始迭代, 如果target &gt; nums[i] 并且 &lt;= nums[i+1]则返回i+1;</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target &lt;= nums[<span class="number">0</span>]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(target &gt; nums[nums.size()<span class="number">-1</span>]) <span class="keyword">return</span> nums.size();</span><br><span class="line">        <span class="keyword">if</span>(target == nums[nums.size()<span class="number">-1</span>]) <span class="keyword">return</span> nums.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; target &amp;&amp; nums[i+<span class="number">1</span>] &gt;= target) <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -575,7 +590,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 17:53:29" itemprop="dateModified" datetime="2019-04-29T17:53:29+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:04:13" itemprop="dateModified" datetime="2019-04-29T18:04:13+08:00">2019-04-29</time>
               
             
           </span>
@@ -663,7 +678,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 输出: 1994
 解释: M = 1000, CM = 900, XC = 90, IV = 4.
 </code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题中可知如果某一位字母的下一位比其本身大, 则是一个<strong>合成数</strong>, 例如CM, XC, IV等.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m; <span class="comment">// 用哈希表储存每个字母所对应的数字</span></span><br><span class="line">    <span class="comment">// 因为不需要遍历表, 所以使用哈希表提高读取速度.</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        m[<span class="string">'I'</span>] = <span class="number">1</span>;</span><br><span class="line">        m[<span class="string">'V'</span>] = <span class="number">5</span>;</span><br><span class="line">        m[<span class="string">'X'</span>] = <span class="number">10</span>;</span><br><span class="line">        m[<span class="string">'L'</span>] = <span class="number">50</span>;</span><br><span class="line">        m[<span class="string">'C'</span>] = <span class="number">100</span>;</span><br><span class="line">        m[<span class="string">'D'</span>] = <span class="number">500</span>;</span><br><span class="line">        m[<span class="string">'M'</span>] = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>; <span class="comment">// 数字总和</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); ++i) &#123; <span class="comment">// 遍历输入的字符串</span></span><br><span class="line">            <span class="keyword">if</span>(m[s[i]] &lt; m[s[i+<span class="number">1</span>]]) &#123; <span class="comment">// 如果某个字母的下一个字母数字要比其大则为合成数</span></span><br><span class="line">                result += (m[s[i+<span class="number">1</span>]] - m[s[i]]);</span><br><span class="line">                <span class="comment">// cout&lt;&lt;(m[s[i+1]] - m[s[i]])&lt;&lt;" ! "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">                ++i; <span class="comment">// 避免重复遍历</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            result += m[s[i]];</span><br><span class="line">            <span class="comment">// cout&lt;&lt;m[s[i]]&lt;&lt;" "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m; <span class="comment">// 用哈希表储存每个字母所对应的数字</span></span><br><span class="line">    <span class="comment">// 因为不需要遍历表, 所以使用哈希表提高读取速度.</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        m[<span class="string">'I'</span>] = <span class="number">1</span>;</span><br><span class="line">        m[<span class="string">'V'</span>] = <span class="number">5</span>;</span><br><span class="line">        m[<span class="string">'X'</span>] = <span class="number">10</span>;</span><br><span class="line">        m[<span class="string">'L'</span>] = <span class="number">50</span>;</span><br><span class="line">        m[<span class="string">'C'</span>] = <span class="number">100</span>;</span><br><span class="line">        m[<span class="string">'D'</span>] = <span class="number">500</span>;</span><br><span class="line">        m[<span class="string">'M'</span>] = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>; <span class="comment">// 数字总和</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); ++i) &#123; <span class="comment">// 遍历输入的字符串</span></span><br><span class="line">            <span class="keyword">if</span>(m[s[i]] &lt; m[s[i+<span class="number">1</span>]]) &#123; <span class="comment">// 如果某个字母的下一个字母数字要比其大则为合成数</span></span><br><span class="line">                result += (m[s[i+<span class="number">1</span>]] - m[s[i]]);</span><br><span class="line">                <span class="comment">// cout&lt;&lt;(m[s[i+1]] - m[s[i]])&lt;&lt;" ! "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">                ++i; <span class="comment">// 避免重复遍历</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            result += m[s[i]];</span><br><span class="line">            <span class="comment">// cout&lt;&lt;m[s[i]]&lt;&lt;" "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -781,7 +796,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 17:53:20" itemprop="dateModified" datetime="2019-04-29T17:53:20+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:04:10" itemprop="dateModified" datetime="2019-04-29T18:04:10+08:00">2019-04-29</time>
               
             
           </span>
@@ -1171,7 +1186,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 17:52:24" itemprop="dateModified" datetime="2019-04-29T17:52:24+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:04:12" itemprop="dateModified" datetime="2019-04-29T18:04:12+08:00">2019-04-29</time>
               
             
           </span>
@@ -1369,7 +1384,7 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 18:01:47" itemprop="dateModified" datetime="2019-04-29T18:01:47+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:37:49" itemprop="dateModified" datetime="2019-04-29T18:37:49+08:00">2019-04-29</time>
               
             
           </span>
@@ -1441,7 +1456,9 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
 解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &#39;1&#39;。
 </code></pre><p><strong>进阶:</strong></p>
 <pre><code>如果多次调用这个函数，你将如何优化你的算法？
-</code></pre>
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>可以循环的对输入数与1取与, 如结果为1则返回结果加1, 后右移1位.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 手动取每一位</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n&amp;<span class="number">1</span> == <span class="number">1</span>) ++count; <span class="comment">// 如数和1取与为1则结果加1</span></span><br><span class="line">            n &gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 使用STL的bitset</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">bitset</span>&lt;32&gt; b(n);</span><br><span class="line">        <span class="comment">// 由于题中已说是32位无符号整数, 则可以使用bitset</span></span><br><span class="line">        <span class="keyword">return</span> b.count();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2124,7 +2141,7 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 17:53:14" itemprop="dateModified" datetime="2019-04-29T17:53:14+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 18:04:08" itemprop="dateModified" datetime="2019-04-29T18:04:08+08:00">2019-04-29</time>
               
             
           </span>
