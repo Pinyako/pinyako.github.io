@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="PTA集训-8-1 大数运算超大整数求和计算输入格式:输入的第一行是一个正整数N，表示一共有N组测试数据。 每组数据由1~100行正整数组成，每行正整数的长度不大于100位。 当输入0时，表示此组数据输入完毕。 输出格式:对于每组输入数据，输出所有数字的总和。每两组输出数据之间有一个空行。 输入样例:在这里给出一组输入。例如：  2 123456789012345678901234567890 1">
-<meta name="keywords" content="C++,PTA,大数运算">
+  <meta name="description" content="题目描述给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。     1   / \   2   2 / \ / \ 3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:   1 / \ 2   2 \   \ 3    3 题目分析题目可以用递归和递推两种方法解决, 递归方法思路如下: 对根节点下两棵子树进">
+<meta name="keywords" content="C++,Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTA集训-8-1">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/PTA集训-8-1/index.html">
+<meta property="og:title" content="Leetcode 101.对称二叉树">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/Leetcode-101-对称二叉树/index.html">
 <meta property="og:site_name" content="Pinyako&#39;s blog">
-<meta property="og:description" content="PTA集训-8-1 大数运算超大整数求和计算输入格式:输入的第一行是一个正整数N，表示一共有N组测试数据。 每组数据由1~100行正整数组成，每行正整数的长度不大于100位。 当输入0时，表示此组数据输入完毕。 输出格式:对于每组输入数据，输出所有数字的总和。每两组输出数据之间有一个空行。 输入样例:在这里给出一组输入。例如：  2 123456789012345678901234567890 1">
+<meta property="og:description" content="题目描述给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。     1   / \   2   2 / \ / \ 3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:   1 / \ 2   2 \   \ 3    3 题目分析题目可以用递归和递推两种方法解决, 递归方法思路如下: 对根节点下两棵子树进">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T09:51:28.109Z">
+<meta property="og:updated_time" content="2019-04-29T10:51:51.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PTA集训-8-1">
-<meta name="twitter:description" content="PTA集训-8-1 大数运算超大整数求和计算输入格式:输入的第一行是一个正整数N，表示一共有N组测试数据。 每组数据由1~100行正整数组成，每行正整数的长度不大于100位。 当输入0时，表示此组数据输入完毕。 输出格式:对于每组输入数据，输出所有数字的总和。每两组输出数据之间有一个空行。 输入样例:在这里给出一组输入。例如：  2 123456789012345678901234567890 1">
+<meta name="twitter:title" content="Leetcode 101.对称二叉树">
+<meta name="twitter:description" content="题目描述给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。     1   / \   2   2 / \ / \ 3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:   1 / \ 2   2 \   \ 3    3 题目分析题目可以用递归和递推两种方法解决, 递归方法思路如下: 对根节点下两棵子树进">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/10/PTA集训-8-1/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/29/Leetcode-101-对称二叉树/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>PTA集训-8-1 | Pinyako's blog</title>
+  <title>Leetcode 101.对称二叉树 | Pinyako's blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pinyako.github.io/2019/04/10/PTA集训-8-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pinyako.github.io/2019/04/29/Leetcode-101-对称二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pinyako">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PTA集训-8-1
+          <h1 class="post-title" itemprop="name headline">Leetcode 101.对称二叉树
 
               
             
@@ -385,24 +385,12 @@
                 
               
 
-              <time title="创建时间：2019-04-10 13:59:30" itemprop="dateCreated datePublished" datetime="2019-04-10T13:59:30+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-29 18:45:49 / 修改时间：18:51:51" itemprop="dateCreated datePublished" datetime="2019-04-29T18:45:49+08:00">2019-04-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-29 17:51:28" itemprop="dateModified" datetime="2019-04-29T17:51:28+08:00">2019-04-29</time>
               
             
           </span>
@@ -419,7 +407,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/pinyako.github.io/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/pinyako.github.io/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
 
                 
                 
@@ -454,25 +442,22 @@
       
 
       
-        <h1 id="PTA集训-8-1-大数运算"><a href="#PTA集训-8-1-大数运算" class="headerlink" title="PTA集训-8-1 大数运算"></a>PTA集训-8-1 大数运算</h1><h2 id="超大整数求和计算"><a href="#超大整数求和计算" class="headerlink" title="超大整数求和计算"></a>超大整数求和计算</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><pre><code>输入的第一行是一个正整数N，表示一共有N组测试数据。 每组数据由1~100行正整数组成，每行正整数的长度不大于100位。 当输入0时，表示此组数据输入完毕。
-</code></pre><h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h3><pre><code>对于每组输入数据，输出所有数字的总和。每两组输出数据之间有一个空行。
-</code></pre><h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h3><pre><code>在这里给出一组输入。例如：
-
-2
-123456789012345678901234567890
-123456789012345678901234567890
-123456789012345678901234567890
-0
-12
-34
-0
-</code></pre><h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h3><pre><code>在这里给出相应的输出。例如：
-
-370370367037037036703703703670
-
-46
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>如题可知输入的数是极大的, 目前编译器自带的可以直接声明的数据类型是不够用的. 所以可以自定义一个数据结构来进行相加. 通过输入字符串来转化为自定义数据结构. 通过倒序存储数字可以方便的进行进位.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">bigNum</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">110</span>];</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    bigNum() &#123; <span class="comment">//构造函数</span></span><br><span class="line">        <span class="built_in">memset</span>(nums, <span class="number">0</span>, <span class="keyword">sizeof</span>(nums)); <span class="comment">//将nums数组内所有元素初始化为0</span></span><br><span class="line">        length = <span class="number">0</span>; <span class="comment">//将大数长度初始化为0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>&amp; <span class="keyword">operator</span>[](<span class="keyword">int</span> index) &#123; <span class="comment">// [] 运算符重载</span></span><br><span class="line">        <span class="keyword">if</span>(index &gt; <span class="keyword">this</span>-&gt;length) <span class="keyword">return</span> <span class="keyword">this</span>-&gt;nums[<span class="number">0</span>]; <span class="comment">//如果index越界输出最后一个元素</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>-&gt;nums[<span class="keyword">this</span>-&gt;length - <span class="number">1</span> - index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bigNum <span class="keyword">operator</span>+ (bigNum num) &#123;</span><br><span class="line">        bigNum resultNum; <span class="comment">//声明一个返回的大数</span></span><br><span class="line">        resultNum.length = max(<span class="keyword">this</span>-&gt;length, num.length)+<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//使返回的大数的长度为本身与被加数其中最大的长度+1, +1是因为考虑到进位</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;resultNum.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="keyword">this</span>-&gt;nums[i] + num.nums[i];</span><br><span class="line">            resultNum.nums[i] += temp%<span class="number">10</span>;</span><br><span class="line">            resultNum.nums[i+<span class="number">1</span>] += temp/<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(resultNum[<span class="number">0</span>] == <span class="number">0</span>) resultNum.length--;</span><br><span class="line">        <span class="comment">//如果第一位为0(没有进位)则使长度-1</span></span><br><span class="line">        <span class="keyword">return</span> resultNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printNum</span><span class="params">(bigNum num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num.length; ++i) &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;num[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">bigNum <span class="title">fromString</span><span class="params">(<span class="built_in">string</span> numString)</span> </span>&#123;</span><br><span class="line">    bigNum num;</span><br><span class="line">    num.length = numString.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num.length; ++i) &#123; <span class="comment">//倒序存储方便进位</span></span><br><span class="line">        num.nums[i] = numString[num.length<span class="number">-1</span>-i] - <span class="number">48</span>; <span class="comment">//字符-&gt;数字</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;N;</span><br><span class="line">    <span class="comment">// string num_in;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;bigNum&gt; v; <span class="comment">//用一个vector来存储大数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;N; ++i) &#123;</span><br><span class="line">        bigNum res;</span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        <span class="keyword">while</span>(s != <span class="string">"0"</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">            res = res + fromString(s);</span><br><span class="line">        &#125;</span><br><span class="line">        v.push_back(res);</span><br><span class="line">        <span class="comment">// printNum(res);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v.size()<span class="number">-1</span>; ++i) &#123; <span class="comment">//输出v.size()-1个为了符合输出格式</span></span><br><span class="line">        printNum(v[i]);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//同上为了符合输出格式而输出两次回车</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;printNum(v[v.size()<span class="number">-1</span>]);</span><br><span class="line">    <span class="comment">// system("pause"); //本地调试使用, 提交可能会导致超时</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<pre><code>    1
+  / \
+  2   2
+/ \ / \
+3  4 4  3
+</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre><code>  1
+/ \
+2   2
+\   \
+3    3
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题目可以用递归和递推两种方法解决, 递归方法思路如下:</p>
+<p>对根节点下两棵子树进行判断, 两棵子树的根节点值相等并且子树的两颗子树也为对称则为对称树.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isTwoSym</span><span class="params">(TreeNode* l, TreeNode* r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l == <span class="literal">NULL</span> || r == <span class="literal">NULL</span>) &#123; <span class="comment">// 两个节点中含有NULL节点</span></span><br><span class="line">            <span class="keyword">return</span> l == r;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> l-&gt;val == r-&gt;val &amp;&amp; isTwoSym(l-&gt;left, r-&gt;right) &amp;&amp; isTwoSym(l-&gt;right, r-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// ↑ 单根节点情况</span></span><br><span class="line">        <span class="keyword">if</span>((root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right != <span class="literal">NULL</span>) || (root-&gt;right == <span class="literal">NULL</span> &amp;&amp; root-&gt;left != <span class="literal">NULL</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// ↑ 根节点下只有一个节点情况</span></span><br><span class="line">        <span class="keyword">return</span> isTwoSym(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -497,9 +482,7 @@
           
             <a href="/pinyako.github.io/tags/C/" rel="tag"># C++</a>
           
-            <a href="/pinyako.github.io/tags/PTA/" rel="tag"># PTA</a>
-          
-            <a href="/pinyako.github.io/tags/大数运算/" rel="tag"># 大数运算</a>
+            <a href="/pinyako.github.io/tags/Leetcode/" rel="tag"># Leetcode</a>
           
         </div>
       
@@ -512,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/pinyako.github.io/2019/04/02/PTA集训-7-1/" rel="next" title="PAT集训 7-1">
-                <i class="fa fa-chevron-left"></i> PAT集训 7-1
+              <a href="/pinyako.github.io/2019/04/26/Leetcode-35-搜索插入位置/" rel="next" title="Leetcode 35.搜索插入位置">
+                <i class="fa fa-chevron-left"></i> Leetcode 35.搜索插入位置
               </a>
             
           </div>
@@ -522,8 +505,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/pinyako.github.io/2019/04/17/Leetcode-27-移除元素/" rel="prev" title="Leetcode 27.移除元素">
-                Leetcode 27.移除元素 <i class="fa fa-chevron-right"></i>
+              <a href="/pinyako.github.io/2019/04/29/Leetcode-268-缺失数字/" rel="prev" title="Leetcode 268.缺失数字">
+                Leetcode 268.缺失数字 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -723,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PTA集训-8-1-大数运算"><span class="nav-number">1.</span> <span class="nav-text">PTA集训-8-1 大数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#超大整数求和计算"><span class="nav-number">1.1.</span> <span class="nav-text">超大整数求和计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">1.1.2.</span> <span class="nav-text">输出格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例"><span class="nav-number">1.1.3.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例"><span class="nav-number">1.1.4.</span> <span class="nav-text">输出样例:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">1.2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">1.3.</span> <span class="nav-text">源码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li></ol></div>
             
 
           </div>
