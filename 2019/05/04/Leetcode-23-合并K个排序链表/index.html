@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Pinyako&#39;s blog">
 <meta property="og:description" content="题目描述合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入: [   1-&amp;gt;4-&amp;gt;5,   1-&amp;gt;3-&amp;gt;4,   2-&amp;gt;6 ] 输出: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 题目分析同 Leetcode 21.合并两个有序链表, 将所有节点放入优先队列后建新表. 源码123456789">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-04T12:21:30.575Z">
+<meta property="og:updated_time" content="2019-05-04T12:39:53.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 23.合并K个排序链表">
 <meta name="twitter:description" content="题目描述合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入: [   1-&amp;gt;4-&amp;gt;5,   1-&amp;gt;3-&amp;gt;4,   2-&amp;gt;6 ] 输出: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 题目分析同 Leetcode 21.合并两个有序链表, 将所有节点放入优先队列后建新表. 源码123456789">
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="创建时间：2019-05-04 20:11:49 / 修改时间：20:21:30" itemprop="dateCreated datePublished" datetime="2019-05-04T20:11:49+08:00">2019-05-04</time>
+              <time title="创建时间：2019-05-04 20:11:49 / 修改时间：20:39:53" itemprop="dateCreated datePublished" datetime="2019-05-04T20:11:49+08:00">2019-05-04</time>
             
 
             
@@ -442,7 +442,7 @@
       
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\pinyako.github.io\assets\css\APlayer.min.css"><script src="\pinyako.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
 <p><strong>示例:</strong></p>
 <pre><code>输入:
 [
@@ -451,7 +451,7 @@
   2-&gt;6
 ]
 输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>同 <a href="https://pinyako.github.io/pinyako.github.io/2019/05/04/Leetcode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" target="_blank" rel="noopener">Leetcode 21.合并两个有序链表</a>, 将所有节点放入优先队列后建新表.</p>
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>同 <a href="https://pinyako.github.io/2019/05/04/Leetcode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" target="_blank" rel="noopener">Leetcode 21.合并两个有序链表</a>, 将所有节点放入优先队列后建新表.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">comp</span>&#123;</span> <span class="comment">// 自定义排序函数</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(ListNode* &amp;a, ListNode* &amp;b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val &gt; b-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    priority_queue&lt;ListNode*, <span class="built_in">vector</span>&lt;ListNode*&gt;, comp&gt; q; <span class="comment">// 用优先队列储存节点</span></span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lists.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 如果数组为空则返回NULL</span></span><br><span class="line">        ListNode* it;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;lists.size(); ++i) &#123; <span class="comment">// 遍历所有表并将每个表中所有节点存入优先队列</span></span><br><span class="line">            it = lists[i];</span><br><span class="line">            <span class="keyword">while</span>(it != <span class="literal">NULL</span>) &#123;</span><br><span class="line">                q.push(it);</span><br><span class="line">                it = it-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(q.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 如果数组中只有空节点则返回NULL</span></span><br><span class="line">        ListNode* res = q.top();</span><br><span class="line">        q.pop();</span><br><span class="line">        it = res;</span><br><span class="line">        <span class="keyword">while</span>(q.size() != <span class="number">0</span>) &#123;</span><br><span class="line">            it-&gt;next = q.top();</span><br><span class="line">            it = it-&gt;next;</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        it-&gt;next = <span class="literal">NULL</span>; <span class="comment">// ***将最后一个节点的next设为NULL***</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
