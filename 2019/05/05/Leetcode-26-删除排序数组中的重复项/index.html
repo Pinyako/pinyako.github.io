@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="题目描述合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入: [   1-&amp;gt;4-&amp;gt;5,   1-&amp;gt;3-&amp;gt;4,   2-&amp;gt;6 ] 输出: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 题目分析同 Leetcode 21.合并两个有序链表, 将所有节点放入优先队列后建新表. 源码123456789">
-<meta name="keywords" content="C++,Leetcode,链表,优先队列">
+  <meta name="description" content="题目描述给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。 示例 1: 给定数组 nums = [1,1,2],   函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。   你不需要考虑数组中超出新长度后面的元素。 示例 2:">
+<meta name="keywords" content="C++,Leetcode,数组">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 23.合并K个排序链表">
-<meta property="og:url" content="http://yoursite.com/2019/05/04/Leetcode-23-合并K个排序链表/index.html">
+<meta property="og:title" content="Leetcode 26.删除排序数组中的重复项">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/Leetcode-26-删除排序数组中的重复项/index.html">
 <meta property="og:site_name" content="Pinyako&#39;s blog">
-<meta property="og:description" content="题目描述合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入: [   1-&amp;gt;4-&amp;gt;5,   1-&amp;gt;3-&amp;gt;4,   2-&amp;gt;6 ] 输出: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 题目分析同 Leetcode 21.合并两个有序链表, 将所有节点放入优先队列后建新表. 源码123456789">
+<meta property="og:description" content="题目描述给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。 示例 1: 给定数组 nums = [1,1,2],   函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。   你不需要考虑数组中超出新长度后面的元素。 示例 2:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-04T12:41:54.043Z">
+<meta property="og:updated_time" content="2019-05-05T10:10:15.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 23.合并K个排序链表">
-<meta name="twitter:description" content="题目描述合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入: [   1-&amp;gt;4-&amp;gt;5,   1-&amp;gt;3-&amp;gt;4,   2-&amp;gt;6 ] 输出: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 题目分析同 Leetcode 21.合并两个有序链表, 将所有节点放入优先队列后建新表. 源码123456789">
+<meta name="twitter:title" content="Leetcode 26.删除排序数组中的重复项">
+<meta name="twitter:description" content="题目描述给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。 示例 1: 给定数组 nums = [1,1,2],   函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。   你不需要考虑数组中超出新长度后面的元素。 示例 2:">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/04/Leetcode-23-合并K个排序链表/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/Leetcode-26-删除排序数组中的重复项/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Leetcode 23.合并K个排序链表 | Pinyako's blog</title>
+  <title>Leetcode 26.删除排序数组中的重复项 | Pinyako's blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/Leetcode-23-合并K个排序链表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Leetcode-26-删除排序数组中的重复项/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pinyako">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 23.合并K个排序链表
+          <h1 class="post-title" itemprop="name headline">Leetcode 26.删除排序数组中的重复项
 
               
             
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="创建时间：2019-05-04 20:11:49 / 修改时间：20:41:54" itemprop="dateCreated datePublished" datetime="2019-05-04T20:11:49+08:00">2019-05-04</time>
+              <time title="创建时间：2019-05-05 18:07:02 / 修改时间：18:10:15" itemprop="dateCreated datePublished" datetime="2019-05-05T18:07:02+08:00">2019-05-05</time>
             
 
             
@@ -442,17 +442,27 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
-<p><strong>示例:</strong></p>
-<pre><code>输入:
-[
-  1-&gt;4-&gt;5,
-  1-&gt;3-&gt;4,
-  2-&gt;6
-]
-输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>同 <a href="https://pinyako.github.io/2019/05/04/Leetcode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" target="_blank" rel="noopener">Leetcode 21.合并两个有序链表</a>, 将所有节点放入优先队列后建新表.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">comp</span>&#123;</span> <span class="comment">// 自定义排序函数</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(ListNode* &amp;a, ListNode* &amp;b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val &gt; b-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    priority_queue&lt;ListNode*, <span class="built_in">vector</span>&lt;ListNode*&gt;, comp&gt; q; <span class="comment">// 用优先队列储存节点</span></span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lists.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 如果数组为空则返回NULL</span></span><br><span class="line">        ListNode* it;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;lists.size(); ++i) &#123; <span class="comment">// 遍历所有表并将每个表中所有节点存入优先队列</span></span><br><span class="line">            it = lists[i];</span><br><span class="line">            <span class="keyword">while</span>(it != <span class="literal">NULL</span>) &#123;</span><br><span class="line">                q.push(it);</span><br><span class="line">                it = it-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(q.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 如果数组中只有空节点则返回NULL</span></span><br><span class="line">        ListNode* res = q.top();</span><br><span class="line">        q.pop();</span><br><span class="line">        it = res;</span><br><span class="line">        <span class="keyword">while</span>(q.size() != <span class="number">0</span>) &#123;</span><br><span class="line">            it-&gt;next = q.top();</span><br><span class="line">            it = it-&gt;next;</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        it-&gt;next = <span class="literal">NULL</span>; <span class="comment">// ***将最后一个节点的next设为NULL***</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>给定数组 nums = [1,1,2], 
+
+函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
+
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre><p><strong>示例 2:</strong></p>
+<pre><code>给定 nums = [0,0,1,1,1,2,2,3,3,4],
+
+函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
+
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre><p><strong>说明:</strong></p>
+<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
+<p>请注意，输入数组是以<strong>引用</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+<p>你可以想象内部操作如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝</span></span><br><span class="line"><span class="keyword">int</span> len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在函数里修改输入数组对于调用者是可见的。</span></span><br><span class="line"><span class="comment">// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>迭代整个数组, 如果某一个元素和其上一个元素相等则删除此元素.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = nums.begin()+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(it != nums.end()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(*it == *(it<span class="number">-1</span>)) &#123;</span><br><span class="line">                nums.erase(it);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                it++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -479,9 +489,7 @@
           
             <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/tags/链表/" rel="tag"># 链表</a>
-          
-            <a href="/tags/优先队列/" rel="tag"># 优先队列</a>
+            <a href="/tags/数组/" rel="tag"># 数组</a>
           
         </div>
       
@@ -494,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/04/Leetcode-21-合并两个有序链表/" rel="next" title="Leetcode 21.合并两个有序链表">
-                <i class="fa fa-chevron-left"></i> Leetcode 21.合并两个有序链表
+              <a href="/2019/05/04/Leetcode-23-合并K个排序链表/" rel="next" title="Leetcode 23.合并K个排序链表">
+                <i class="fa fa-chevron-left"></i> Leetcode 23.合并K个排序链表
               </a>
             
           </div>
@@ -504,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/05/Leetcode-26-删除排序数组中的重复项/" rel="prev" title="Leetcode 26.删除排序数组中的重复项">
-                Leetcode 26.删除排序数组中的重复项 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/05/Leetcode-28-实现str-str/" rel="prev" title="Leetcode 28.实现str-str">
+                Leetcode 28.实现str-str <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
