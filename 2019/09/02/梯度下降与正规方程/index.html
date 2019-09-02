@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Pinyako&#39;s blog">
 <meta property="og:description" content="梯度下降公式如下: $θ_i = θ_i - α \frac{\delta}{\delta θ_i}J(θ)$ $θ_i$ 为第i个特征 $J(\theta)$ 为损失函数 $α$ 为学习率 正规方程假如训练数据如下:     - 尺寸(平米) 卧室数 层数 楼龄(年) 价格(千刀)     $x_0$ $x_1$ $x_2$ $x_3$ $x_4$ $x_5$   1 2104 5 1 45 4">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-02T11:24:04.496Z">
+<meta property="og:updated_time" content="2019-09-02T11:30:01.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梯度下降与正规方程">
 <meta name="twitter:description" content="梯度下降公式如下: $θ_i = θ_i - α \frac{\delta}{\delta θ_i}J(θ)$ $θ_i$ 为第i个特征 $J(\theta)$ 为损失函数 $α$ 为学习率 正规方程假如训练数据如下:     - 尺寸(平米) 卧室数 层数 楼龄(年) 价格(千刀)     $x_0$ $x_1$ $x_2$ $x_3$ $x_4$ $x_5$   1 2104 5 1 45 4">
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2019-09-02 19:23:39 / 修改时间：19:24:04" itemprop="dateCreated datePublished" datetime="2019-09-02T19:23:39+08:00">2019-09-02</time>
+              <time title="创建时间：2019-09-02 19:23:39 / 修改时间：19:30:01" itemprop="dateCreated datePublished" datetime="2019-09-02T19:23:39+08:00">2019-09-02</time>
             
 
             
@@ -961,6 +961,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
