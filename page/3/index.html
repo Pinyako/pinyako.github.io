@@ -358,6 +358,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/Leetcode-338-比特位计数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pinyako">
+      <meta itemprop="description" content="Just a pineapple.">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pinyako's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/29/Leetcode-338-比特位计数/" class="post-title-link" itemprop="url">Leetcode 338.比特位计数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-29 18:57:25" itemprop="dateCreated datePublished" datetime="2019-04-29T18:57:25+08:00">2019-04-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-02 20:04:06" itemprop="dateModified" datetime="2019-09-02T20:04:06+08:00">2019-09-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
+<p><strong>示例 1:</strong></p>
+<blockquote>
+<p>输入: 2<br>输出: [0,1,1]</p>
+</blockquote>
+<p><strong>示例 2:</strong></p>
+<blockquote>
+<p>输入: 5<br>输出: [0,1,1,2,1,2]</p>
+</blockquote>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>假如某一个数的二进制1位数是n, 则它左移一位的数的1位数也是n, 这样我们便可以使用筛法来避免重复运算.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> finded[<span class="number">100000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(finded[num] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> t = num, sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(t != <span class="number">0</span>) &#123;</span><br><span class="line">                sum += t &amp; <span class="number">1</span>;</span><br><span class="line">                t&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            t = num;</span><br><span class="line">            <span class="keyword">while</span>(t &lt;= max) &#123;</span><br><span class="line">                finded[t] = sum;</span><br><span class="line">                t &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> finded[num];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countBits(<span class="keyword">int</span> num) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        res.push_back(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=num; ++i) &#123;</span><br><span class="line">            res.push_back(dp(i, num));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/Leetcode-268-缺失数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -602,7 +784,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-14 09:01:20" itemprop="dateModified" datetime="2019-05-14T09:01:20+08:00">2019-05-14</time>
+                <time title="修改时间：2019-09-14 22:46:26" itemprop="dateModified" datetime="2019-09-14T22:46:26+08:00">2019-09-14</time>
               
             
           </span>
@@ -657,22 +839,12 @@
         
           
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-  / \
-  2   2
-/ \ / \
-3  4 4  3
-</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>  1
-/ \
-2   2
-\   \
-3    3
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题目可以用递归和递推两种方法解决, 递归方法思路如下:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</span><br><span class="line"></span><br><span class="line">   1</span><br><span class="line">  / \</span><br><span class="line"> 2   2</span><br><span class="line">/ \ / \</span><br><span class="line">3  4 4  3</span><br><span class="line"></span><br><span class="line">但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</span><br><span class="line"></span><br><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line"> 2   2</span><br><span class="line"> \    \</span><br><span class="line">  3    3</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题目可以用递归和递推两种方法解决, 递归方法思路如下:</p>
 <p>对根节点下两棵子树进行判断, 两棵子树的根节点值相等并且子树的两颗子树也为对称则为对称树.</p>
 <h2 id="源码-递归"><a href="#源码-递归" class="headerlink" title="源码(递归)"></a>源码(递归)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isTwoSym</span><span class="params">(TreeNode* l, TreeNode* r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l == <span class="literal">NULL</span> || r == <span class="literal">NULL</span>) &#123; <span class="comment">// 两个节点中含有NULL节点</span></span><br><span class="line">            <span class="keyword">return</span> l == r;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> l-&gt;val == r-&gt;val &amp;&amp; isTwoSym(l-&gt;left, r-&gt;right) &amp;&amp; isTwoSym(l-&gt;right, r-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// ↑ 单根节点情况</span></span><br><span class="line">        <span class="keyword">if</span>((root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right != <span class="literal">NULL</span>) || (root-&gt;right == <span class="literal">NULL</span> &amp;&amp; root-&gt;left != <span class="literal">NULL</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// ↑ 根节点下只有一个节点情况</span></span><br><span class="line">        <span class="keyword">return</span> isTwoSym(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="源码-深度优先搜索"><a href="#源码-深度优先搜索" class="headerlink" title="源码(深度优先搜索)"></a>源码(深度优先搜索)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 如果根节点是空节点则返回true</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; st1, st2; <span class="comment">// 将节点储存在栈中</span></span><br><span class="line">        st1.push(root-&gt;left); <span class="comment">// 将根节点左右的节点压入栈中</span></span><br><span class="line">        st2.push(root-&gt;right);</span><br><span class="line">        <span class="keyword">while</span>(!st1.empty() &amp;&amp; !st2.empty()) &#123; <span class="comment">// 在任意一个栈为空时停止循环</span></span><br><span class="line">            TreeNode* cur1 = st1.top();</span><br><span class="line">            TreeNode* cur2 = st2.top();</span><br><span class="line">            st1.pop();</span><br><span class="line">            st2.pop();</span><br><span class="line">            <span class="keyword">if</span>((cur1 == <span class="literal">NULL</span> &amp;&amp; cur2 != <span class="literal">NULL</span>) || (cur1 != <span class="literal">NULL</span> &amp;&amp; cur2 == <span class="literal">NULL</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(cur1 != <span class="literal">NULL</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(cur1-&gt;val != cur2-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                st1.push(cur1-&gt;left); <span class="comment">// 左节点先压入左 后压入右</span></span><br><span class="line">                st1.push(cur1-&gt;right);</span><br><span class="line">                st2.push(cur2-&gt;right); <span class="comment">// 右节点先压入右 后压入左</span></span><br><span class="line">                st2.push(cur2-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -790,7 +962,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 18:37:45" itemprop="dateModified" datetime="2019-04-29T18:37:45+08:00">2019-04-29</time>
+                <time title="修改时间：2019-09-14 22:44:10" itemprop="dateModified" datetime="2019-09-14T22:44:10+08:00">2019-09-14</time>
               
             
           </span>
@@ -847,19 +1019,16 @@
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
 <p>你可以假设数组中无重复元素。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入: [1,3,5,6], 5
-输出: 2
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: [1,3,5,6], 2
-输出: 1
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入: [1,3,5,6], 7
-输出: 4
-</code></pre><p><strong>示例 4:</strong></p>
-<pre><code>输入: [1,3,5,6], 0
-输出: 0
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>由于是有序数组, 则先比较目标数字与两侧极值的, 确定目标数字是否在数组之中, 而后从第一个元素开始迭代, 如果target &gt; nums[i] 并且 &lt;= nums[i+1]则返回i+1;</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 5</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 2</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 7</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>由于是有序数组, 则先比较目标数字与两侧极值的, 确定目标数字是否在数组之中, 而后从第一个元素开始迭代, 如果target &gt; nums[i] 并且 &lt;= nums[i+1]则返回i+1;</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target &lt;= nums[<span class="number">0</span>]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(target &gt; nums[nums.size()<span class="number">-1</span>]) <span class="keyword">return</span> nums.size();</span><br><span class="line">        <span class="keyword">if</span>(target == nums[nums.size()<span class="number">-1</span>]) <span class="keyword">return</span> nums.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; target &amp;&amp; nums[i+<span class="number">1</span>] &gt;= target) <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -977,7 +1146,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 18:41:58" itemprop="dateModified" datetime="2019-04-29T18:41:58+08:00">2019-04-29</time>
+                <time title="修改时间：2019-09-14 22:40:29" itemprop="dateModified" datetime="2019-09-14T22:40:29+08:00">2019-09-14</time>
               
             
           </span>
@@ -1033,27 +1202,21 @@
           
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
 <p>有效字符串需满足：</p>
-<pre><code>1. 左括号必须用相同类型的右括号闭合。
-2. 左括号必须以正确的顺序闭合。
-3. 注意空字符串可被认为是有效字符串。
-</code></pre><p><strong>示例 1:</strong></p>
-<pre><code>输入: &quot;()&quot;
-输出: true
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: &quot;()[]{}&quot;
-输出: true
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入: &quot;(]&quot;
-输出: false
-</code></pre><p><strong>示例 4:</strong></p>
-<pre><code>输入: &quot;([)]&quot;
-输出: false
-</code></pre><p><strong>示例 5:</strong></p>
-<pre><code>输入: &quot;{[]}&quot;
-输出: true
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>使用栈来读取每个括号, 如果栈顶的括号与将压入的括号相对, 则弹出栈顶元素, 否则入栈.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1. </span>左括号必须用相同类型的右括号闭合。</span><br><span class="line"><span class="bullet">2. </span>左括号必须以正确的顺序闭合。</span><br><span class="line"><span class="bullet">3. </span>注意空字符串可被认为是有效字符串。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "()"</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "()[]&#123;&#125;"</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "(]"</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "([)]"</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<p><strong>示例 5:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "&#123;[]&#125;"</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>使用栈来读取每个括号, 如果栈顶的括号与将压入的括号相对, 则弹出栈顶元素, 否则入栈.</p>
 <p>最后检查是否栈为空, 如非空则为非法字符串.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size()%<span class="number">2</span> != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// 如果字符串字符数目为奇数则一定有单个的括号</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt;* st = <span class="keyword">new</span> <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt;(); <span class="comment">// 新建指针以便结束时删除</span></span><br><span class="line">        st-&gt;push(<span class="string">'1'</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(st-&gt;top() == s[i]<span class="number">-1</span> || st-&gt;top() == s[i]<span class="number">-2</span>) &#123;</span><br><span class="line">                st-&gt;pop();</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                st-&gt;push(s[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">bool</span> a = st-&gt;top() == <span class="string">'1'</span>;</span><br><span class="line">        <span class="keyword">delete</span> st;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1171,7 +1334,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-04 20:23:17" itemprop="dateModified" datetime="2019-05-04T20:23:17+08:00">2019-05-04</time>
+                <time title="修改时间：2019-09-14 22:38:19" itemprop="dateModified" datetime="2019-09-14T22:38:19+08:00">2019-09-14</time>
               
             
           </span>
@@ -1226,40 +1389,25 @@
         
           
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。</p>
-<pre><code>字符          数值
-I             1
-V             5
-X             10
-L             50
-C             100
-D             500
-M             1000
-</code></pre><p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
+<p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
 <p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。</p>
 <p>数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
-<pre><code>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
-X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
-C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
-</code></pre><p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</span><br><span class="line">X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。</span><br><span class="line">C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</span><br></pre></td></tr></table></figure>
+<p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入: &quot;III&quot;
-输出: 3
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: &quot;IV&quot;
-输出: 4
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入: &quot;IX&quot;
-输出: 9
-</code></pre><p><strong>示例 4:</strong></p>
-<pre><code>输入: &quot;LVIII&quot;
-输出: 58
-解释: L = 50, V= 5, III = 3.
-</code></pre><p><strong>示例 5:</strong></p>
-<pre><code>输入: &quot;MCMXCIV&quot;
-输出: 1994
-解释: M = 1000, CM = 900, XC = 90, IV = 4.
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题中可知如果某一位字母的下一位比其本身大, 则是一个<strong>合成数</strong>, 例如CM, XC, IV等.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "III"</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "IV"</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: "IX"</span><br><span class="line">输出: 9</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: "LVIII"</span><br><span class="line">输出: 58</span><br><span class="line">解释: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure>
+<p><strong>示例 5:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: "MCMXCIV"</span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题中可知如果某一位字母的下一位比其本身大, 则是一个<strong>合成数</strong>, 例如CM, XC, IV等.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m; <span class="comment">// 用哈希表储存每个字母所对应的数字</span></span><br><span class="line">    <span class="comment">// 因为不需要遍历表, 所以使用哈希表提高读取速度.</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        m[<span class="string">'I'</span>] = <span class="number">1</span>;</span><br><span class="line">        m[<span class="string">'V'</span>] = <span class="number">5</span>;</span><br><span class="line">        m[<span class="string">'X'</span>] = <span class="number">10</span>;</span><br><span class="line">        m[<span class="string">'L'</span>] = <span class="number">50</span>;</span><br><span class="line">        m[<span class="string">'C'</span>] = <span class="number">100</span>;</span><br><span class="line">        m[<span class="string">'D'</span>] = <span class="number">500</span>;</span><br><span class="line">        m[<span class="string">'M'</span>] = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>; <span class="comment">// 数字总和</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); ++i) &#123; <span class="comment">// 遍历输入的字符串</span></span><br><span class="line">            <span class="keyword">if</span>(m[s[i]] &lt; m[s[i+<span class="number">1</span>]]) &#123; <span class="comment">// 如果某个字母的下一个字母数字要比其大则为合成数</span></span><br><span class="line">                result += (m[s[i+<span class="number">1</span>]] - m[s[i]]);</span><br><span class="line">                <span class="comment">// cout&lt;&lt;(m[s[i+1]] - m[s[i]])&lt;&lt;" ! "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">                ++i; <span class="comment">// 避免重复遍历</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            result += m[s[i]];</span><br><span class="line">            <span class="comment">// cout&lt;&lt;m[s[i]]&lt;&lt;" "&lt;&lt;i&lt;&lt;endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1377,7 +1525,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 18:04:10" itemprop="dateModified" datetime="2019-04-29T18:04:10+08:00">2019-04-29</time>
+                <time title="修改时间：2019-09-14 22:39:20" itemprop="dateModified" datetime="2019-09-14T22:39:20+08:00">2019-09-14</time>
               
             
           </span>
@@ -1433,18 +1581,14 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
           
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入: 121
-输出: true
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: -121
-输出: false
-解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入: 10
-输出: false
-解释: 从右向左读, 为 01 。因此它不是一个回文数。
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先负数一定不是回文数, 其次一位数一定是回文数. 两位数以上则可以取每一位数字后对比.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//负数不是回文数.</span></span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//一位数是回文数.</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">double</span>(x)/<span class="number">10</span> == x/<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//最后一位为0的不是回文数.</span></span><br><span class="line">        <span class="keyword">int</span> n = <span class="built_in">log10</span>(x)+<span class="number">1</span>; <span class="comment">//取位数</span></span><br><span class="line">        <span class="comment">// cout&lt;&lt;n&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = x%<span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i))/<span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i<span class="number">-1</span>));</span><br><span class="line">            num += temp*<span class="built_in">pow</span>(<span class="number">10</span>, n-i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num == x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: false</span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: false</span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先负数一定不是回文数, 其次一位数一定是回文数. 两位数以上则可以取每一位数字后对比.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//负数不是回文数.</span></span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//一位数是回文数.</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">double</span>(x)/<span class="number">10</span> == x/<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//最后一位为0的不是回文数.</span></span><br><span class="line">        <span class="keyword">int</span> n = <span class="built_in">log10</span>(x)+<span class="number">1</span>; <span class="comment">//取位数</span></span><br><span class="line">        <span class="comment">// cout&lt;&lt;n&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = x%<span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i))/<span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i<span class="number">-1</span>));</span><br><span class="line">            num += temp*<span class="built_in">pow</span>(<span class="number">10</span>, n-i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num == x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1562,7 +1706,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-14 08:51:13" itemprop="dateModified" datetime="2019-05-14T08:51:13+08:00">2019-05-14</time>
+                <time title="修改时间：2019-09-14 22:59:44" itemprop="dateModified" datetime="2019-09-14T22:59:44+08:00">2019-09-14</time>
               
             
           </span>
@@ -1619,38 +1763,15 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
 <p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入:
-
-       1         1
-      / \       / \
-     2   3     2   3
-
-    [1,2,3],   [1,2,3]
-
-输出: true
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入:
-
-       1          1
-      /           \
-     2             2
-
-    [1,2],     [1,null,2]
-
-输出: false
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入:
-
-       1         1
-      / \       / \
-     2   1     1   2
-
-    [1,2,1],   [1,1,2]
-
-输出: false
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题可以用深度搜索来解决, 也可以用递归来解决.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">   1         1</span><br><span class="line">  / \       / \</span><br><span class="line"> 2   3     2   3</span><br><span class="line"></span><br><span class="line">[1,2,3],   [1,2,3]</span><br><span class="line"></span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">   1          1</span><br><span class="line">  /           \</span><br><span class="line"> 2             2</span><br><span class="line"></span><br><span class="line">[1,2],     [1,null,2]</span><br><span class="line"></span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">   1         1</span><br><span class="line">  / \       / \</span><br><span class="line"> 2   1     1   2</span><br><span class="line"></span><br><span class="line">[1,2,1],   [1,1,2]</span><br><span class="line"></span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题可以用深度搜索来解决, 也可以用递归来解决.</p>
 <h2 id="源码-递归"><a href="#源码-递归" class="headerlink" title="源码(递归)"></a>源码(递归)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 递归方法</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p == <span class="literal">NULL</span> || q == <span class="literal">NULL</span>) &#123; <span class="comment">// 两个节点有一个为空</span></span><br><span class="line">            <span class="keyword">return</span> p == q;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> p-&gt;val == q-&gt;val &amp;&amp; isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right);</span><br><span class="line">            <span class="comment">// p节点的左子树和q节点左子树相等并且p节点的右子树和q节点的右子树相等</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="源码-深度优先搜索"><a href="#源码-深度优先搜索" class="headerlink" title="源码(深度优先搜索)"></a>源码(深度优先搜索)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p == <span class="literal">NULL</span> &amp;&amp; q != <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 左树空树 右树非空树</span></span><br><span class="line">        <span class="keyword">if</span>(q == <span class="literal">NULL</span> &amp;&amp; p != <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 右树空树 左树非空树</span></span><br><span class="line">        <span class="keyword">if</span>(p == <span class="literal">NULL</span> &amp;&amp; q == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;  <span class="comment">// 同时为空树</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; q1, q2; <span class="comment">// 声明两个栈用来储存节点</span></span><br><span class="line">        q1.push(p);</span><br><span class="line">        q2.push(q);</span><br><span class="line">        <span class="keyword">while</span>(!q1.empty() &amp;&amp; !q2.empty()) &#123; <span class="comment">// 有任意一个栈为空时停止循环</span></span><br><span class="line">            TreeNode *cur1 = q1.top(), *cur2 = q2.top(); <span class="comment">// 将栈首节点设为当前操作节点</span></span><br><span class="line">            q1.pop(); <span class="comment">// 将两个当前操作节点弹出</span></span><br><span class="line">            q2.pop();</span><br><span class="line">            <span class="keyword">if</span>((cur1 == <span class="literal">NULL</span> &amp;&amp; cur2 != <span class="literal">NULL</span>) || (cur1 != <span class="literal">NULL</span> &amp;&amp; cur2 == <span class="literal">NULL</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="comment">// 判断是否只有一个节点为空</span></span><br><span class="line">            <span class="keyword">if</span>(cur1 != <span class="literal">NULL</span>)&#123; <span class="comment">// 如果两个节点都不为空则对比两个节点值, 如果相等则将其子节点压入栈</span></span><br><span class="line">                <span class="keyword">if</span>(cur1-&gt;val != cur2-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                q1.push(cur1-&gt;left);</span><br><span class="line">                q1.push(cur1-&gt;right);</span><br><span class="line">                q2.push(cur2-&gt;left);</span><br><span class="line">                q2.push(cur2-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1768,7 +1889,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-04 20:24:27" itemprop="dateModified" datetime="2019-05-04T20:24:27+08:00">2019-05-04</time>
+                <time title="修改时间：2019-09-14 22:38:09" itemprop="dateModified" datetime="2019-09-14T22:38:09+08:00">2019-09-14</time>
               
             
           </span>
@@ -1830,18 +1951,12 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 <p>例如，上图是一个7 x 3 的网格。有多少可能的路径？</p>
 <p>说明：m 和 n 的值均不超过 100。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入: m = 3, n = 2
-输出: 3
-</code></pre><p>解释:</p>
-<pre><code>从左上角开始，总共有 3 条路径可以到达右下角。
-
-1. 向右 -&gt; 向右 -&gt; 向下
-2. 向右 -&gt; 向下 -&gt; 向右
-3. 向下 -&gt; 向右 -&gt; 向右
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: m = 7, n = 3
-输出: 28
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>到达(m, n)点的路径数应等于到达(m, n-1) + (m-1, n)的路径数和. 由此得出状态转移方程:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: m = 3, n = 2</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+<p>解释:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">从左上角开始，总共有 3 条路径可以到达右下角。</span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>向右 -&gt; 向右 -&gt; 向下</span><br><span class="line"><span class="bullet">2. </span>向右 -&gt; 向下 -&gt; 向右</span><br><span class="line"><span class="bullet">3. </span>向下 -&gt; 向右 -&gt; 向右</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: m = 7, n = 3</span><br><span class="line">输出: 28</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>到达(m, n)点的路径数应等于到达(m, n-1) + (m-1, n)的路径数和. 由此得出状态转移方程:</p>
 <script type="math/tex; mode=display">
 dp(m, n)=
 \begin{cases}
@@ -1849,6 +1964,7 @@ dp(m, n)=
 dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
 \end{cases}</script><p>但是用递归解决这个问题在m, n较大时会存在效率低的问题, 因为有些m, n的情况被重复计算, 这样我们可以使用一个数组来存放计算结果, 在遇到重复计算时便可以从数组之中直接得到值.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">10000</span>][<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">// 初始化所有元素为0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">1</span> || n == <span class="number">1</span>) &#123; <span class="comment">// 在m == 1 或者 n == 1 时返回1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(num[m][n] != <span class="number">0</span>) &#123; <span class="comment">// 如果num[m][n]存在, 则说明已经运算过此情况, 直接从数组中获取结果</span></span><br><span class="line">                <span class="keyword">return</span> num[m][n];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                num[m][n] = uniquePaths(m<span class="number">-1</span>, n) + uniquePaths(m, n<span class="number">-1</span>);</span><br><span class="line">                <span class="comment">// 将结果存在num[m][n]中后返回num[m][n]</span></span><br><span class="line">                <span class="keyword">return</span> num[m][n];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1966,7 +2082,7 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-02 20:15:14" itemprop="dateModified" datetime="2019-09-02T20:15:14+08:00">2019-09-02</time>
+                <time title="修改时间：2019-09-14 22:48:00" itemprop="dateModified" datetime="2019-09-14T22:48:00+08:00">2019-09-14</time>
               
             
           </span>
@@ -2022,17 +2138,11 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
           
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。</p>
 <p><strong>示例 1:</strong></p>
-<blockquote>
-<p>输入：00000000000000000000000000001011<br>输出：3<br>解释：输入的二进制串 00000000000000000000000000001011 中，’1’。</p>
-</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：00000000000000000000000000001011  </span><br><span class="line">输出：3  </span><br><span class="line">解释：输入的二进制串 00000000000000000000000000001011 中，'1'。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2:</strong></p>
-<blockquote>
-<p>输入：00000000000000000000000010000000<br>输出：1<br>解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 ‘1’。</p>
-</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：00000000000000000000000010000000  </span><br><span class="line">输出：1  </span><br><span class="line">解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 '1'。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 3:</strong></p>
-<blockquote>
-<p>输入：11111111111111111111111111111101<br>输出：31<br>解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为’1’。</p>
-</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：11111111111111111111111111111101  </span><br><span class="line">输出：31  </span><br><span class="line">解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为'1'。</span><br></pre></td></tr></table></figure>
 <p><strong>进阶:</strong></p>
 <blockquote>
 <p>如果多次调用这个函数，你将如何优化你的算法？</p>
@@ -2040,191 +2150,7 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>可以循环的对输入数与1取与, 如结果为1则返回结果加1, 后右移1位.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 手动取每一位</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n&amp;<span class="number">1</span> == <span class="number">1</span>) ++count; <span class="comment">// 如数和1取与为1则结果加1</span></span><br><span class="line">            n &gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 使用STL的bitset</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">bitset</span>&lt;32&gt; b(n);</span><br><span class="line">        <span class="comment">// 由于题中已说是32位无符号整数, 则可以使用bitset</span></span><br><span class="line">        <span class="keyword">return</span> b.count();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/Leetcode-231-2的幂/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pinyako">
-      <meta itemprop="description" content="Just a pineapple.">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pinyako's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/17/Leetcode-231-2的幂/" class="post-title-link" itemprop="url">Leetcode 231.2的幂</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-17 23:44:20" itemprop="dateCreated datePublished" datetime="2019-04-17T23:44:20+08:00">2019-04-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-29 17:51:24" itemprop="dateModified" datetime="2019-04-29T17:51:24+08:00">2019-04-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
-<p><strong>示例 1:</strong></p>
-<pre><code>输入: 1
-输出: true
-</code></pre><p>解释: $2^0$ = 1</p>
-<p><strong>示例 2:</strong></p>
-<pre><code>输入: 16
-输出: true
-</code></pre><p>解释: $2^4$ = 16</p>
-<p><strong>示例 3:</strong></p>
-<pre><code>输入: 218
-输出: false
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>如果一个数是2的幂, 则它的二进制一定只有第一位是1, 其他位为0. 这样我们取它与比它小1的与. 如果所得为0, 则为2的幂, 反之则不是2的幂.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfTwo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 2的幂一一定大于0</span></span><br><span class="line">        <span class="keyword">return</span> n&amp;(n<span class="number">-1</span>) == <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2313,7 +2239,7 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2391,7 +2317,9 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2627,9 +2555,9 @@ dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
       
     
       
-        
-      
     
+      
+        
       
     
       

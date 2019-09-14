@@ -361,6 +361,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/Leetcode-278-第一个错误的/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pinyako">
+      <meta itemprop="description" content="Just a pineapple.">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pinyako's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/14/Leetcode-278-第一个错误的/" class="post-title-link" itemprop="url">Leetcode 278.第一个错误的</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-14 20:31:20 / 修改时间：22:32:29" itemprop="dateCreated datePublished" datetime="2019-09-14T20:31:20+08:00">2019-09-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。</p>
+<p>由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的.</p>
+<p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p>
+<p>你可以通过调用 <code>bool isBadVersion(version)</code> 接口来判断版本号 version 是否在单元测试中出错。</p>
+<p>实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">给定 n = 5，并且 version = 4 是第一个错误的版本。</span><br><span class="line"></span><br><span class="line">调用 <span class="code">`isBadVersion(3)`</span> -&gt; false</span><br><span class="line">调用 <span class="code">`isBadVersion(5)`</span> -&gt; true</span><br><span class="line">调用 <span class="code">`isBadVersion(4)`</span> -&gt; true</span><br><span class="line"></span><br><span class="line">所以，4 是第一个错误的版本。</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>简单的二分搜索. 每次找区间[from, to]中间的元素查看是否为badVersion, 如果是, 则查找[from, (to - from) / 2], 否则查找[(to - from) / 2 + 1, to], 直到from == to 或者 from == to - 1, 此时判断如果<code>isBadVersion(from) == isBadVersion(to)</code>则返回from, 否则返回to.</p>
+<h2 id="源码-简单"><a href="#源码-简单" class="headerlink" title="源码(简单)"></a>源码(简单)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isBadVersion</span><span class="params">(<span class="keyword">int</span> version)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(from == to || from == to - <span class="number">1</span>) <span class="keyword">return</span> isBadVersion(from) ? from : to;</span><br><span class="line">        <span class="keyword">return</span> isBadVersion(from + (to - from) / <span class="number">2</span>) ? binarySearch(from, from + (to - from) / <span class="number">2</span>) : binarySearch(from + (to - from) / <span class="number">2</span> + <span class="number">1</span>, to);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(<span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="进阶问题"><a href="#进阶问题" class="headerlink" title="进阶问题"></a>进阶问题</h2><p>如果<code>isBadVersion()</code>函数只会返回当前位的状态, 并不知道状态true和false哪一个是错误的, 这种情况下要怎么解决呢?</p>
+<h2 id="源码-进阶"><a href="#源码-进阶" class="headerlink" title="源码(进阶)"></a>源码(进阶)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isBadVersion</span><span class="params">(<span class="keyword">int</span> version)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 如果**所搜索区间**的第一位和最后一位相同则是**区间**第一位开始出错</span></span><br><span class="line">            <span class="keyword">if</span>(isBadVersion(from) == isBadVersion(to)) <span class="keyword">return</span> from;</span><br><span class="line">            <span class="comment">// 如果所搜索区间的起始位置和结束位置相同或者起始位置是结束位置-1</span></span><br><span class="line">            <span class="comment">// 则如果起始位置</span></span><br><span class="line">            <span class="keyword">if</span>(from == to || to == from + <span class="number">1</span>) <span class="keyword">return</span> isBadVersion(from) == isBadVersion(to) ? from : to;</span><br><span class="line">            <span class="keyword">return</span> isBadVersion(from) != isBadVersion(from + (to - from) / <span class="number">2</span>) ? binarySearch(from, from + (to - from) / <span class="number">2</span>) : binarySearch(from + (to - from) / <span class="number">2</span> + <span class="number">1</span>, to);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearch(<span class="number">1</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/梯度下降与正规方程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -565,7 +736,7 @@
 </table>
 </div>
 <!-- 
-    <div id="aplayer-sTwoxSKX" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-HsRjeZmH" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="5875075150" data-server="tecent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#66ccff"
     ></div> -->
 
@@ -669,12 +840,24 @@
                 
               
 
-              <time title="创建时间：2019-05-18 16:34:37 / 修改时间：16:41:47" itemprop="dateCreated datePublished" datetime="2019-05-18T16:34:37+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 16:34:37" itemprop="dateCreated datePublished" datetime="2019-05-18T16:34:37+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-14 22:34:43" itemprop="dateModified" datetime="2019-09-14T22:34:43+08:00">2019-09-14</time>
               
             
           </span>
@@ -732,28 +915,20 @@
 <p>在 Unix 风格的文件系统中，一个点（.）表示当前目录本身；此外，两个点 （..） 表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。更多信息请参阅：Linux / Unix中的绝对路径 vs 相对路径</p>
 <p>请注意，返回的规范路径必须始终以斜杠 / 开头，并且两个目录名之间必须只有一个斜杠 /。最后一个目录名（如果存在）不能以 / 结尾。此外，规范路径必须是表示绝对路径的最短字符串。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入：&quot;/home/&quot;
-输出：&quot;/home&quot;
-解释：注意，最后一个目录名后面没有斜杠。
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入：&quot;/../&quot;
-输出：&quot;/&quot;
-解释：从根目录向上一级是不可行的，因为根是你可以到达的最高级。
-</code></pre><p><strong>示例 3:</strong></p>
-<pre><code>输入：&quot;/home//foo/&quot;
-输出：&quot;/home/foo&quot;
-解释：在规范路径中，多个连续斜杠需要用一个斜杠替换。
-</code></pre><p><strong>示例 4:</strong></p>
-<pre><code>输入：&quot;/a/./b/../../c/&quot;
-输出：&quot;/c&quot;
-</code></pre><p><strong>示例 5:</strong></p>
-<pre><code>输入：&quot;/a/../../b/../c//.//&quot;
-输出：&quot;/c&quot;
-</code></pre><p><strong>示例 6:</strong></p>
-<pre><code>输入：&quot;/a//b////c/d//././/..&quot;
-输出：&quot;/a/b/c&quot;
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>先将字符串以’/‘作为分隔分为子字符串, 再对每一个子字符串判断.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入："/home/"</span><br><span class="line">输出："/home"</span><br><span class="line">解释：注意，最后一个目录名后面没有斜杠。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入："/../"</span><br><span class="line">输出："/"</span><br><span class="line">解释：从根目录向上一级是不可行的，因为根是你可以到达的最高级。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入："/home//foo/"</span><br><span class="line">输出："/home/foo"</span><br><span class="line">解释：在规范路径中，多个连续斜杠需要用一个斜杠替换。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入："/a/./b/../../c/"</span><br><span class="line">输出："/c"</span><br></pre></td></tr></table></figure>
+<p><strong>示例 5:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入："/a/../../b/../c//.//"</span><br><span class="line">输出："/c"</span><br></pre></td></tr></table></figure>
+<p><strong>示例 6:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入："/a//b////c/d//././/.."</span><br><span class="line">输出："/a/b/c"</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>先将字符串以’/‘作为分隔分为子字符串, 再对每一个子字符串判断.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">simplifyPath</span><span class="params">(<span class="built_in">string</span> path)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(path)</span></span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; st, res;</span><br><span class="line">        <span class="built_in">string</span> temp;</span><br><span class="line">        <span class="keyword">while</span>(getline(ss, temp, <span class="string">'/'</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="string">""</span>) <span class="keyword">continue</span>; <span class="comment">// 空字符串或"."不操作</span></span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="string">"."</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="string">".."</span>) &#123;</span><br><span class="line">                <span class="comment">// 子字符串为".."时判断是否有前置目录(栈是否为空)</span></span><br><span class="line">                <span class="comment">// 非空则栈首元素出栈</span></span><br><span class="line">                <span class="keyword">if</span>(!st.empty()) st.pop();</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        temp = <span class="string">"/"</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty()) &#123; <span class="comment">// 将元素反序</span></span><br><span class="line">            res.push(st.top());</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!res.empty()) &#123;</span><br><span class="line">            temp += res.top() + <span class="string">"/"</span>;</span><br><span class="line">            res.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp != <span class="string">"/"</span>) temp.pop_back();</span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1590,7 +1765,7 @@ empty() -- 返回栈是否为空
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-02 20:15:15" itemprop="dateModified" datetime="2019-09-02T20:15:15+08:00">2019-09-02</time>
+                <time title="修改时间：2019-09-14 22:47:18" itemprop="dateModified" datetime="2019-09-14T22:47:18+08:00">2019-09-14</time>
               
             
           </span>
@@ -1647,15 +1822,12 @@ empty() -- 返回栈是否为空
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个算法来判断一个数是不是“快乐数”。</p>
 <p>一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。</p>
 <p><strong>示例:</strong></p>
-<blockquote>
-<p>输入: 19<br>输出: true</p>
-</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 19  </span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
 <p><strong>解释:</strong></p>
-<blockquote>
 <p>$1^2 + 9^2 = 82$<br>$8^2 + 2^2 = 68$<br>$6^2 + 8^2 = 100$<br>$1^2 + 0^2 + 0^2 = 1$</p>
-</blockquote>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>就求呗…<br>把每次的结果存在哈希堆里来查重</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">toNextInt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> digits = <span class="built_in">log10</span>(x)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x != <span class="number">0</span>) &#123;</span><br><span class="line">        res += (x%<span class="number">10</span>) * (x%<span class="number">10</span>);</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; nums;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = n;</span><br><span class="line">        <span class="keyword">while</span>(res != <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums.find(res) == nums.end()) &#123;</span><br><span class="line">                nums.insert(res);</span><br><span class="line">                res = toNextInt(res);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1756,12 +1928,24 @@ empty() -- 返回栈是否为空
                 
               
 
-              <time title="创建时间：2019-05-18 16:23:16 / 修改时间：17:01:10" itemprop="dateCreated datePublished" datetime="2019-05-18T16:23:16+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 16:23:16" itemprop="dateCreated datePublished" datetime="2019-05-18T16:23:16+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-14 22:41:57" itemprop="dateModified" datetime="2019-09-14T22:41:57+08:00">2019-09-14</time>
               
             
           </span>
@@ -1818,8 +2002,9 @@ empty() -- 返回栈是否为空
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
 <p>你不能只是单纯的改变节点内部的值，而是需要<strong>实际的进行节点交换</strong>。</p>
 <p><strong>示例:</strong></p>
-<pre><code>给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Defination of ListNode</span></span><br><span class="line"><span class="comment">struct ListNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode* next;</span></span><br><span class="line"><span class="comment">    ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果是空表返回NULL, 如果是单节点返回head</span></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        ListNode* fast = slow-&gt;next;</span><br><span class="line">        slow-&gt;next = fast-&gt;next;</span><br><span class="line">        fast-&gt;next = slow;</span><br><span class="line">        swap(slow, fast);</span><br><span class="line">        ListNode* res = slow;</span><br><span class="line">        <span class="keyword">while</span>(fast-&gt;next != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            slow = fast-&gt;next;</span><br><span class="line">            fast-&gt;next = slow-&gt;next;</span><br><span class="line">            fast = slow-&gt;next;</span><br><span class="line">            slow-&gt;next = fast-&gt;next;</span><br><span class="line">            fast-&gt;next = slow;</span><br><span class="line">            swap(slow, fast);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Defination of ListNode</span></span><br><span class="line"><span class="comment">struct ListNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode* next;</span></span><br><span class="line"><span class="comment">    ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果是空表返回NULL, 如果是单节点返回head</span></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        ListNode* fast = slow-&gt;next;</span><br><span class="line">        slow-&gt;next = fast-&gt;next;</span><br><span class="line">        fast-&gt;next = slow;</span><br><span class="line">        swap(slow, fast);</span><br><span class="line">        ListNode* res = slow;</span><br><span class="line">        <span class="keyword">while</span>(fast-&gt;next != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            slow = fast-&gt;next;</span><br><span class="line">            fast-&gt;next = slow-&gt;next;</span><br><span class="line">            fast = slow-&gt;next;</span><br><span class="line">            slow-&gt;next = fast-&gt;next;</span><br><span class="line">            fast-&gt;next = slow;</span><br><span class="line">            swap(slow, fast);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1924,164 +2109,20 @@ empty() -- 返回栈是否为空
             
 
             
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Leetcode-66-加一/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pinyako">
-      <meta itemprop="description" content="Just a pineapple.">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pinyako's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/05/Leetcode-66-加一/" class="post-title-link" itemprop="url">Leetcode 66.加一</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
-              
+                <span class="post-meta-divider">|</span>
+                
 
-              <time title="创建时间：2019-05-05 18:19:46 / 修改时间：18:30:43" itemprop="dateCreated datePublished" datetime="2019-05-05T18:19:46+08:00">2019-05-05</time>
-            
-
-            
-              
-
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-14 20:32:46" itemprop="dateModified" datetime="2019-09-14T20:32:46+08:00">2019-09-14</time>
               
             
           </span>
@@ -2135,19 +2176,8 @@ empty() -- 返回栈是否为空
       
         
           
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。</p>
-<p>最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。</p>
-<p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
-<p><strong>示例 1:</strong></p>
-<pre><code>输入: [1,2,3]
-输出: [1,2,4]
-解释: 输入数组表示数字 123。
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: [4,3,2,1]
-输出: [4,3,2,2]
-解释: 输入数组表示数字 4321。
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>从后向前遍历数组, 如果某一位是9则设为0, 如果非9则加一, 并返回.<br>如果全部为9则将全部位设为0并在数组开头插入1.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; plusOne(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; digits) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=digits.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; --i) &#123; <span class="comment">// 从后向前遍历</span></span><br><span class="line">            <span class="keyword">if</span>(digits[i] != <span class="number">9</span>) &#123; <span class="comment">// 如果某一位不为9则这位加1后返回</span></span><br><span class="line">                ++digits[i];</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>; <span class="comment">// 为9的则设为0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 到达这里说明原数组所有位均为9</span></span><br><span class="line">        digits.insert(digits.begin(), <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -2236,7 +2266,7 @@ empty() -- 返回栈是否为空
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2314,7 +2344,9 @@ empty() -- 返回栈是否为空
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2536,9 +2568,9 @@ empty() -- 返回栈是否为空
   
     
       
-        
-      
     
+      
+        
       
     
       

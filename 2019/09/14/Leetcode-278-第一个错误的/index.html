@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="题目描述给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。 示例: 输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]        5       / \     3    6   / \    \   2   4    8 /        / \ 1        7   9  输出：[1,null">
-<meta name="keywords" content="C++,Leetcode,递归,二叉树">
+  <meta name="description" content="题目描述你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。 由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的. 假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中">
+<meta name="keywords" content="C++,Leetcode,二分搜索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 897.递增顺序查找树">
-<meta property="og:url" content="http://yoursite.com/2019/04/29/Leetcode-897-递增顺序查找树/index.html">
+<meta property="og:title" content="Leetcode 278.第一个错误的">
+<meta property="og:url" content="http://yoursite.com/2019/09/14/Leetcode-278-第一个错误的/index.html">
 <meta property="og:site_name" content="Pinyako&#39;s blog">
-<meta property="og:description" content="题目描述给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。 示例: 输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]        5       / \     3    6   / \    \   2   4    8 /        / \ 1        7   9  输出：[1,null">
+<meta property="og:description" content="题目描述你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。 由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的. 假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-05T08:18:44.512Z">
+<meta property="og:updated_time" content="2019-09-14T14:32:29.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 897.递增顺序查找树">
-<meta name="twitter:description" content="题目描述给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。 示例: 输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]        5       / \     3    6   / \    \   2   4    8 /        / \ 1        7   9  输出：[1,null">
+<meta name="twitter:title" content="Leetcode 278.第一个错误的">
+<meta name="twitter:description" content="题目描述你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。 由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的. 假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/29/Leetcode-897-递增顺序查找树/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/14/Leetcode-278-第一个错误的/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Leetcode 897.递增顺序查找树 | Pinyako's blog</title>
+  <title>Leetcode 278.第一个错误的 | Pinyako's blog</title>
   
 
 
@@ -359,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/Leetcode-897-递增顺序查找树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/Leetcode-278-第一个错误的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pinyako">
@@ -376,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 897.递增顺序查找树
+          <h1 class="post-title" itemprop="name headline">Leetcode 278.第一个错误的
 
               
             
@@ -402,24 +402,12 @@
                 
               
 
-              <time title="创建时间：2019-04-29 19:39:39" itemprop="dateCreated datePublished" datetime="2019-04-29T19:39:39+08:00">2019-04-29</time>
+              <time title="创建时间：2019-09-14 20:31:20 / 修改时间：22:32:29" itemprop="dateCreated datePublished" datetime="2019-09-14T20:31:20+08:00">2019-09-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-05 16:18:44" itemprop="dateModified" datetime="2019-05-05T16:18:44+08:00">2019-05-05</time>
               
             
           </span>
@@ -471,39 +459,18 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。</p>
+<p>由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的.</p>
+<p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p>
+<p>你可以通过调用 <code>bool isBadVersion(version)</code> 接口来判断版本号 version 是否在单元测试中出错。</p>
+<p>实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p>
 <p><strong>示例:</strong></p>
-<pre><code>输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">给定 n = 5，并且 version = 4 是第一个错误的版本。</span><br><span class="line"></span><br><span class="line">调用 <span class="code">`isBadVersion(3)`</span> -&gt; false</span><br><span class="line">调用 <span class="code">`isBadVersion(5)`</span> -&gt; true</span><br><span class="line">调用 <span class="code">`isBadVersion(4)`</span> -&gt; true</span><br><span class="line"></span><br><span class="line">所以，4 是第一个错误的版本。</span><br></pre></td></tr></table></figure>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>简单的二分搜索. 每次找区间[from, to]中间的元素查看是否为badVersion, 如果是, 则查找[from, (to - from) / 2], 否则查找[(to - from) / 2 + 1, to], 直到from == to 或者 from == to - 1, 此时判断如果<code>isBadVersion(from) == isBadVersion(to)</code>则返回from, 否则返回to.</p>
+<h2 id="源码-简单"><a href="#源码-简单" class="headerlink" title="源码(简单)"></a>源码(简单)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isBadVersion</span><span class="params">(<span class="keyword">int</span> version)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(from == to || from == to - <span class="number">1</span>) <span class="keyword">return</span> isBadVersion(from) ? from : to;</span><br><span class="line">        <span class="keyword">return</span> isBadVersion(from + (to - from) / <span class="number">2</span>) ? binarySearch(from, from + (to - from) / <span class="number">2</span>) : binarySearch(from + (to - from) / <span class="number">2</span> + <span class="number">1</span>, to);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(<span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="进阶问题"><a href="#进阶问题" class="headerlink" title="进阶问题"></a>进阶问题</h2><p>如果<code>isBadVersion()</code>函数只会返回当前位的状态, 并不知道状态true和false哪一个是错误的, 这种情况下要怎么解决呢?</p>
+<h2 id="源码-进阶"><a href="#源码-进阶" class="headerlink" title="源码(进阶)"></a>源码(进阶)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isBadVersion</span><span class="params">(<span class="keyword">int</span> version)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 如果**所搜索区间**的第一位和最后一位相同则是**区间**第一位开始出错</span></span><br><span class="line">            <span class="keyword">if</span>(isBadVersion(from) == isBadVersion(to)) <span class="keyword">return</span> from;</span><br><span class="line">            <span class="comment">// 如果所搜索区间的起始位置和结束位置相同或者起始位置是结束位置-1</span></span><br><span class="line">            <span class="comment">// 则如果起始位置</span></span><br><span class="line">            <span class="keyword">if</span>(from == to || to == from + <span class="number">1</span>) <span class="keyword">return</span> isBadVersion(from) == isBadVersion(to) ? from : to;</span><br><span class="line">            <span class="keyword">return</span> isBadVersion(from) != isBadVersion(from + (to - from) / <span class="number">2</span>) ? binarySearch(from, from + (to - from) / <span class="number">2</span>) : binarySearch(from + (to - from) / <span class="number">2</span> + <span class="number">1</span>, to);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearch(<span class="number">1</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-      5
-      / \
-    3    6
-  / \    \
-  2   4    8
-/        / \
-1        7   9
-
-输出：[1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
-
-1
-  \
-  2
-    \
-    3
-      \
-      4
-        \
-        5
-          \
-          6
-            \
-            7
-              \
-              8
-                \
-                9
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>使用递归中序储存节点至vector中, 后重新构建树.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; nodes;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">iterate</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) &#123; <span class="comment">// 如果节点为空则返回</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123; <span class="comment">// 节点不为空</span></span><br><span class="line">            iterate(root-&gt;left); <span class="comment">// 中序遍历左子树储存节点</span></span><br><span class="line">            nodes.push_back(root); <span class="comment">// 储存本节点</span></span><br><span class="line">            iterate(root-&gt;right); <span class="comment">// 中序遍历右子树储存节点</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">increasingBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        iterate(root); <span class="comment">// </span></span><br><span class="line">        TreeNode* res = nodes[<span class="number">0</span>];</span><br><span class="line">        res-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">        TreeNode* it = res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nodes.size(); ++i) &#123;</span><br><span class="line">            it-&gt;right = nodes[i];</span><br><span class="line">            it-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">            it = it-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        it-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -530,9 +497,7 @@
           
             <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/tags/递归/" rel="tag"># 递归</a>
-          
-            <a href="/tags/二叉树/" rel="tag"># 二叉树</a>
+            <a href="/tags/二分搜索/" rel="tag"># 二分搜索</a>
           
         </div>
       
@@ -545,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/29/Leetcode-896-单调数列/" rel="next" title="Leetcode 896.单调数列">
-                <i class="fa fa-chevron-left"></i> Leetcode 896.单调数列
+              <a href="/2019/09/02/梯度下降与正规方程/" rel="next" title="梯度下降与正规方程">
+                <i class="fa fa-chevron-left"></i> 梯度下降与正规方程
               </a>
             
           </div>
@@ -554,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/04/Leetcode-21-合并两个有序链表/" rel="prev" title="Leetcode 21.合并两个有序链表">
-                Leetcode 21.合并两个有序链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -772,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码-简单"><span class="nav-number">3.</span> <span class="nav-text">源码(简单)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶问题"><span class="nav-number">4.</span> <span class="nav-text">进阶问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码-进阶"><span class="nav-number">5.</span> <span class="nav-text">源码(进阶)</span></a></li></ol></div>
             
 
           </div>
