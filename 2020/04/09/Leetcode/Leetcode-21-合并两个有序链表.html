@@ -1,0 +1,51 @@
+<hr>
+<p>title: Leetcode 21.合并两个有序链表<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>链表</li>
+<li>优先队列<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-04 19:56:44</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<p><strong>示例:</strong></p>
+<pre><code class="lang-markdown">    输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+    输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>通过自定义排序函数来使用优先队列来push所有节点后重新建立新链表返回, 这个方法可以用在多链表的题型中: <a href="https://pinyako.github.io/2019/05/04/Leetcode-23-%E5%90%88%E5%B9%B6K%E4%B8%AA%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">Leetcode 23.合并K个排序链表</a>.<br><strong>一定要将最后的节点的next设为NULL!!!</strong></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">struct comp{ // 自定义比较函数
+    bool operator()(ListNode* &amp;a, ListNode* &amp;b) { // 重载()运算符
+        return a-&gt;val &gt; b-&gt;val;
+    }
+};
+
+class Solution {
+public:
+    priority_queue&lt;ListNode*, vector&lt;ListNode*&gt;, comp&gt; q; // 用优先队列储存节点
+
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1 == NULL &amp;&amp; l2 == NULL) return NULL; // 两个表都为空是返回空表
+        ListNode* it = l1;
+        while(it != NULL) { // 遍历l1链表将所有节点存到优先队列中
+            q.push(it);
+            it = it-&gt;next;
+        }
+        it = l2;
+        while(it != NULL) { // 遍历l2链表将所有节点存到优先队列中
+            q.push(it);
+            it = it-&gt;next;
+        }
+        ListNode* res = q.top(); // 返回的头节点
+        q.pop();
+        it = res;
+        while(q.size() != 0) {
+            it-&gt;next = q.top();
+            it = it-&gt;next;
+            // cout&lt;&lt;&quot;poped&quot;&lt;&lt;endl;
+            q.pop();
+        }
+        it-&gt;next = NULL; // ***将最后一个节点的next设为NULL***
+        return res;
+    }
+};
+</code></pre>

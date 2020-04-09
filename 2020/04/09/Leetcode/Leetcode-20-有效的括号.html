@@ -1,0 +1,54 @@
+<hr>
+<p>title: Leetcode 20.有效的括号<br>hide: true<br>date: 2019-04-26 13:01:55<br>tags: </p>
+<pre><code>- C++
+- Leetcode
+- 栈
+</code></pre><p>categories: Leetcode</p>
+<h2 id="mathjax-false"><a href="#mathjax-false" class="headerlink" title="mathjax: false"></a>mathjax: false</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<pre><code class="lang-markdown">    1. 左括号必须用相同类型的右括号闭合。
+    2. 左括号必须以正确的顺序闭合。
+    3. 注意空字符串可被认为是有效字符串。
+</code></pre>
+<p><strong>示例 1:</strong></p>
+<pre><code class="lang-markdown">    输入: &quot;()&quot;
+    输出: true
+</code></pre>
+<p><strong>示例 2:</strong></p>
+<pre><code class="lang-markdown">    输入: &quot;()[]{}&quot;
+    输出: true
+</code></pre>
+<p><strong>示例 3:</strong></p>
+<pre><code class="lang-markdown">    输入: &quot;(]&quot;
+    输出: false
+</code></pre>
+<p><strong>示例 4:</strong></p>
+<pre><code class="lang-markdown">    输入: &quot;([)]&quot;
+    输出: false
+</code></pre>
+<p><strong>示例 5:</strong></p>
+<pre><code class="lang-markdown">    输入: &quot;{[]}&quot;
+    输出: true
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>使用栈来读取每个括号, 如果栈顶的括号与将压入的括号相对, 则弹出栈顶元素, 否则入栈.</p>
+<p>最后检查是否栈为空, 如非空则为非法字符串.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    bool isValid(string s) {
+        if(s.size()%2 != 0) return false;
+        // 如果字符串字符数目为奇数则一定有单个的括号
+        stack&lt;char&gt;* st = new stack&lt;char&gt;(); // 新建指针以便结束时删除
+        st-&gt;push(&#39;1&#39;);
+        for(int i=0; i&lt;s.size(); ++i) {
+            if(st-&gt;top() == s[i]-1 || st-&gt;top() == s[i]-2) {
+                st-&gt;pop();
+            }else {
+                st-&gt;push(s[i]);
+            }
+        }
+        bool a = st-&gt;top() == &#39;1&#39;;
+        delete st;
+        return a;
+    }
+};
+</code></pre>

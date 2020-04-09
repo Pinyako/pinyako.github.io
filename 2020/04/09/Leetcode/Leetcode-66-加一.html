@@ -1,0 +1,40 @@
+<hr>
+<p>title: Leetcode 66.加一<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>数组</li>
+<li>数学<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-05 18:19:46</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。</p>
+<p>最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。</p>
+<p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code class="lang-markdown">输入: [1,2,3]
+输出: [1,2,4]
+解释: 输入数组表示数字 123。
+</code></pre>
+<p><strong>示例 2:</strong></p>
+<pre><code class="lang-markdown">输入: [4,3,2,1]
+输出: [4,3,2,2]
+解释: 输入数组表示数字 4321。
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>从后向前遍历数组, 如果某一位是9则设为0, 如果非9则加一, 并返回.<br>如果全部为9则将全部位设为0并在数组开头插入1.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) {
+        for(int i=digits.size()-1; i&gt;=0; --i) { // 从后向前遍历
+            if(digits[i] != 9) { // 如果某一位不为9则这位加1后返回
+                ++digits[i];
+                return digits;
+            }else {
+                digits[i] = 0; // 为9的则设为0
+            }
+        }
+        // 到达这里说明原数组所有位均为9
+        digits.insert(digits.begin(), 1, 0);
+        return digits;
+    }
+};
+</code></pre>

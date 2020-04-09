@@ -1,0 +1,56 @@
+<hr>
+<p>title: Leetcode 62.不同路径<br>hide: true<br>date: 2019-04-24 09:56:49<br>tags:</p>
+<pre><code>- C++
+- Leetcode
+- 动态规划
+</code></pre><p>categories: Leetcode</p>
+<h2 id="mathjax-true"><a href="#mathjax-true" class="headerlink" title="mathjax: true"></a>mathjax: true</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。</p>
+<p>问总共有多少条不同的路径？</p>
+<p>{% asset_img 2019-04-27-11-45-28.png [Image] %}</p>
+<!-- ![test](leetcode-62-不同路径/2019-04-27-11-45-28.png) -->
+<p>例如，上图是一个7 x 3 的网格。有多少可能的路径？</p>
+<p>说明：m 和 n 的值均不超过 100。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code class="lang-markdown">输入: m = 3, n = 2
+输出: 3
+</code></pre>
+<p>解释:</p>
+<pre><code class="lang-markdown">从左上角开始，总共有 3 条路径可以到达右下角。
+
+1. 向右 -&gt; 向右 -&gt; 向下
+2. 向右 -&gt; 向下 -&gt; 向右
+3. 向下 -&gt; 向右 -&gt; 向右
+</code></pre>
+<p><strong>示例 2:</strong></p>
+<pre><code class="lang-markdown">输入: m = 7, n = 3
+输出: 28
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>到达(m, n)点的路径数应等于到达(m, n-1) + (m-1, n)的路径数和. 由此得出状态转移方程:</p>
+<script type="math/tex; mode=display">
+dp(m, n)=
+\begin{cases}
+1& \text{m == 1 || n == 1}\\\\
+dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
+\end{cases}</script><p>但是用递归解决这个问题在m, n较大时会存在效率低的问题, 因为有些m, n的情况被重复计算, 这样我们可以使用一个数组来存放计算结果, 在遇到重复计算时便可以从数组之中直接得到值.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">
+int num[10000][10000] = {0}; // 初始化所有元素为0
+
+class Solution {
+public:
+
+    int uniquePaths(int m, int n) {
+        if(m == 1 || n == 1) { // 在m == 1 或者 n == 1 时返回1
+            return 1;
+        }else {
+            if(num[m][n] != 0) { // 如果num[m][n]存在, 则说明已经运算过此情况, 直接从数组中获取结果
+                return num[m][n];
+            }else {
+                num[m][n] = uniquePaths(m-1, n) + uniquePaths(m, n-1);
+                // 将结果存在num[m][n]中后返回num[m][n]
+                return num[m][n];
+            }
+        }
+    }
+};
+</code></pre>

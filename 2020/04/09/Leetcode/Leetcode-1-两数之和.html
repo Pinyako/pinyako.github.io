@@ -1,0 +1,36 @@
+<hr>
+<p>title: Leetcode 1.两数之和<br>hide: true<br>date: 2019-04-17 23:11:44<br>tags: </p>
+<pre><code>- C++
+- Leetcode
+- 哈希表
+</code></pre><p>categories: Leetcode</p>
+<h2 id="mathjax-false"><a href="#mathjax-false" class="headerlink" title="mathjax: false"></a>mathjax: false</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整数数组 nums 和一个目标值 target</p>
+<p>请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p><strong>示例:</strong></p>
+<pre><code class="lang-markdown">给定 nums = [2, 7, 11, 15], target = 9
+
+    因为 nums[0] + nums[1] = 2 + 7 = 9
+    所以返回 [0, 1]
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题可以硬核的用两个循环对每两个元素相加求下标, 但是时间复杂度会到O($n^2$), 所以使用哈希表来存储.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        int completion;
+        vector&lt;int&gt; res;
+        unordered_map&lt;int, int&gt; m; // 哈希表, 牺牲空间复杂度获得低时间复杂度.
+        for(int i=0; i&lt;nums.size(); ++i) { // 遍历nums数组.
+            completion = target - nums[i]; // completion 为与nums[i]相加获得target的数.
+            if(m.find(nums[i]) == m.end()) { // 之前没有能和nums[i]相加得到target的元素.
+                m[completion] = i; // 用哈希表保存completion和nums[i]的位置.
+            }else {
+                res.push_back(m[nums[i]]); // 压入之前的位置
+                res.push_back(i); // 压入找到时的位置
+                return res; // 返回答案
+            }
+        }
+        return res; // 没有找到时返回空数组
+    }
+};
+</code></pre>

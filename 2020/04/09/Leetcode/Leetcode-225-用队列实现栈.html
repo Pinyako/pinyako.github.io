@@ -1,0 +1,101 @@
+<hr>
+<p>title: Leetcode 225. 用队列实现栈<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-18 16:24:21</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>使用队列实现栈的下列操作：</p>
+<pre><code>push(x) -- 元素 x 入栈
+pop() -- 移除栈顶元素
+top() -- 获取栈顶元素
+empty() -- 返回栈是否为空
+</code></pre><p><strong>注意:</strong></p>
+<p>你只能使用队列的基本操作— 也就是 push to back, peek/pop from front, size, 和 is empty 这些操作是合法的。<br>你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。<br>你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p><strong>一般方法:</strong></p>
+<p>用两个队列来模拟栈.</p>
+<p><strong>骚气方法:</strong></p>
+<p>先入队列, 然后不停地把队头元素放到队尾(队列长度-1次).</p>
+<h2 id="源码-一般方法"><a href="#源码-一般方法" class="headerlink" title="源码(一般方法)"></a>源码(一般方法)</h2><pre><code class="lang-c++">class MyStack {
+public:
+    queue&lt;int&gt; main;
+    queue&lt;int&gt; cache;
+    /** Initialize your data structure here. */
+    MyStack() {
+
+    }
+
+    /*****------------------Main Method------------------*****/
+
+    /** Push element x onto stack. */
+    void push(int x) {
+        while(!main.empty()) { // 将主队列的元素入缓存队列
+            cache.push(main.front());
+            main.pop();
+        }
+        main.push(x); // 入队元素入主队列
+        while(!cache.empty()) { // 将缓存队列元素压入主队列
+            main.push(cache.front());
+            cache.pop();
+        }
+    }
+
+    /*****------------------Main Method------------------*****/
+
+    /** Removes the element on top of the stack and returns that element. */
+    int pop() {
+        int res = main.front();
+        main.pop();
+        return res;
+    }
+
+    /** Get the top element. */
+    int top() {
+        return main.front();
+    }
+
+    /** Returns whether the stack is empty. */
+    bool empty() {
+        return main.empty();
+    }
+};
+</code></pre>
+<h2 id="源码-骚气方法"><a href="#源码-骚气方法" class="headerlink" title="源码(骚气方法)"></a>源码(骚气方法)</h2><pre><code class="lang-c++">class MyStack {
+public:
+    queue&lt;int&gt; main;
+    /** Initialize your data structure here. */
+    MyStack() {
+
+    }
+
+    /*****------------------Main Method------------------*****/
+
+    /** Push element x onto stack. */
+    void push(int x) {
+        main.push(x); // 将待入队列元素压入队列
+        for(int i=0; i&lt;main.size()-1; ++i) {
+            main.push(main.front()); // 将队首元素压入队列
+            main.pop(); // 将队首元素弹出队列
+        }
+    }
+
+    /*****------------------Main Method------------------*****/
+
+    /** Removes the element on top of the stack and returns that element. */
+    int pop() {
+        int res = main.front();
+        main.pop();
+        return res;
+    }
+
+    /** Get the top element. */
+    int top() {
+        return main.front();
+    }
+
+    /** Returns whether the stack is empty. */
+    bool empty() {
+        return main.empty();
+    }
+};
+</code></pre>

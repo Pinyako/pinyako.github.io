@@ -1,0 +1,49 @@
+<hr>
+<p>title: Leetcode 19.删除链表的倒数第N个节点<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-18 16:22:52</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
+<pre><code class="lang-markdown">示例：
+
+给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.
+</code></pre>
+<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
+<p>给定的 n 保证是有效的。</p>
+<p>进阶：</p>
+<p>你能尝试使用一趟扫描实现吗？</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>既然没有给链表的长度, 一个指针是没法用一边扫描实现的. 所以用两个指针, 一开始两个指针slow和fast都指向头结点, 让fast指针先走n步, 之后两个指针一起走, 在fast到NULL时候, </p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+// @lc code=start
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(head == NULL) return NULL;
+        if(head-&gt;next == NULL) return n == 1 ? NULL : head;
+        ListNode* slow = head;
+        ListNode* fast = slow;
+        for(int i = 0; i &lt; n; ++i) {
+            fast = fast-&gt;next;
+        }
+        if(fast == NULL) return head-&gt;next;
+        while(fast-&gt;next != NULL) {
+            slow = slow-&gt;next;
+            fast = fast-&gt;next;
+        }
+        slow-&gt;next = slow-&gt;next-&gt;next;
+        return head;
+    }
+};
+// @lc code=end
+</code></pre>

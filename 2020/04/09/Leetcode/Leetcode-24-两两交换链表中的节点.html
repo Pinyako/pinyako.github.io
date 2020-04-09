@@ -1,0 +1,42 @@
+<hr>
+<p>title: Leetcode 24.两两交换链表中的节点<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-18 16:23:16</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
+<p>你不能只是单纯的改变节点内部的值，而是需要<strong>实际的进行节点交换</strong>。</p>
+<p><strong>示例:</strong></p>
+<pre><code class="lang-markdown">    给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">/* Defination of ListNode
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+*/
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        // 如果是空表返回NULL, 如果是单节点返回head
+        if(head == NULL || head-&gt;next == NULL) return head;
+        ListNode* slow = head;
+        ListNode* fast = slow-&gt;next;
+        slow-&gt;next = fast-&gt;next;
+        fast-&gt;next = slow;
+        swap(slow, fast);
+        ListNode* res = slow;
+        while(fast-&gt;next != NULL &amp;&amp; fast-&gt;next-&gt;next != NULL) {
+            slow = fast-&gt;next;
+            fast-&gt;next = slow-&gt;next;
+            fast = slow-&gt;next;
+            slow-&gt;next = fast-&gt;next;
+            fast-&gt;next = slow;
+            swap(slow, fast);
+        }
+        return res;
+    }
+};
+</code></pre>

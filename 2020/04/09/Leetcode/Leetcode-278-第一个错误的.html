@@ -1,0 +1,56 @@
+<hr>
+<p>title: Leetcode 278.第一个错误的<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>二分搜索<br>categories: Leetcode<br>mathjax: false<br>date: 2019-09-14 20:31:20</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。</p>
+<p>由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的.</p>
+<p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p>
+<p>你可以通过调用 <code>bool isBadVersion(version)</code> 接口来判断版本号 version 是否在单元测试中出错。</p>
+<p>实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p>
+<p><strong>示例:</strong></p>
+<pre><code class="lang-markdown">给定 n = 5，并且 version = 4 是第一个错误的版本。
+
+调用 `isBadVersion(3)` -&gt; false
+调用 `isBadVersion(5)` -&gt; true
+调用 `isBadVersion(4)` -&gt; true
+
+所以，4 是第一个错误的版本。
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>简单的二分搜索. 每次找区间[from, to]中间的元素查看是否为badVersion, 如果是, 则查找[from, (to - from) / 2], 否则查找[(to - from) / 2 + 1, to], 直到from == to 或者 from == to - 1, 此时判断如果<code>isBadVersion(from) == isBadVersion(to)</code>则返回from, 否则返回to.</p>
+<h2 id="源码-简单"><a href="#源码-简单" class="headerlink" title="源码(简单)"></a>源码(简单)</h2><pre><code class="lang-c++">bool isBadVersion(int version);
+
+class Solution {
+public:
+    int binarySearch(int from, int to) {
+        if(from == to || from == to - 1) return isBadVersion(from) ? from : to;
+        return isBadVersion(from + (to - from) / 2) ? binarySearch(from, from + (to - from) / 2) : binarySearch(from + (to - from) / 2 + 1, to);
+    }
+
+    int firstBadVersion(int n) {
+        return binarySearch(1, n);
+    }
+};
+</code></pre>
+<h2 id="进阶问题"><a href="#进阶问题" class="headerlink" title="进阶问题"></a>进阶问题</h2><p>如果<code>isBadVersion()</code>函数只会返回当前位的状态, 并不知道状态true和false哪一个是错误的, 这种情况下要怎么解决呢?</p>
+<h2 id="源码-进阶"><a href="#源码-进阶" class="headerlink" title="源码(进阶)"></a>源码(进阶)</h2><pre><code class="lang-c++">    bool isBadVersion(int version);
+
+    class Solution {
+    public:
+        int binarySearch(int from, int to) {
+            // 如果**所搜索区间**的第一位和最后一位相同则是**区间**第一位开始出错
+            if(isBadVersion(from) == isBadVersion(to)) return from;
+            // 如果所搜索区间的起始位置和结束位置相同或者起始位置是结束位置-1
+            // 则如果起始位置
+            if(from == to || to == from + 1) return isBadVersion(from) == isBadVersion(to) ? from : to;
+            return isBadVersion(from) != isBadVersion(from + (to - from) / 2) ? binarySearch(from, from + (to - from) / 2) : binarySearch(from + (to - from) / 2 + 1, to);
+        }
+
+        int firstBadVersion(int n) {
+            return binarySearch(1, n);
+        }
+};
+</code></pre>

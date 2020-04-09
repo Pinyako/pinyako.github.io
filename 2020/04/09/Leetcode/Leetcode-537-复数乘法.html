@@ -1,0 +1,37 @@
+<hr>
+<p>title: Leetcode 537.复数乘法<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>字符串<br>categories: Leetcode<br>mathjax: false<br>date: 2019-04-29 19:16:20</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个表示复数的字符串。</p>
+<p>返回表示它们乘积的字符串。注意，根据定义 i2 = -1 。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入: &quot;1+1i&quot;, &quot;1+1i&quot;
+输出: &quot;0+2i&quot;
+解释: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i ，你需要将它转换为 0+2i 的形式。
+</code></pre><p><strong>示例 2:</strong></p>
+<pre><code>输入: &quot;1+-1i&quot;, &quot;1+-1i&quot;
+输出: &quot;0+-2i&quot;
+解释: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i ，你需要将它转换为 0+-2i 的形式。
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>没啥可分析的…就找到四个数字乘下带公式就可以…</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    string complexNumberMultiply(string a, string b) {
+        int z, x, c, v;
+        string s;
+        z = atoi(a.substr(0, a.find(&#39;+&#39;)).c_str());
+        s = a.substr(a.find(&#39;+&#39;)+1);
+        s.pop_back();
+        x = atoi(s.c_str());
+        c = atoi(b.substr(0, b.find(&#39;+&#39;)).c_str());
+        s = b.substr(b.find(&#39;+&#39;)+1);
+        s.pop_back();
+        v = atoi(s.c_str());
+        string res = to_string(z*c-x*v) + &quot;+&quot; + to_string(z*v+x*c) + &quot;i&quot;;
+        return res;
+    }
+};
+</code></pre>

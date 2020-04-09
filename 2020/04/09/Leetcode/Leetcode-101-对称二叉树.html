@@ -1,0 +1,70 @@
+<hr>
+<p>title: Leetcode 101.对称二叉树<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode<br>categories: Leetcode<br>mathjax: false<br>date: 2019-04-29 18:45:49</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<pre><code class="lang-markdown">例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+
+   1
+  / \
+ 2   2
+/ \ / \
+3  4 4  3
+
+但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
+
+  1
+ / \
+ 2   2
+ \    \
+  3    3
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题目可以用递归和递推两种方法解决, 递归方法思路如下:</p>
+<p>对根节点下两棵子树进行判断, 两棵子树的根节点值相等并且子树的两颗子树也为对称则为对称树.</p>
+<h2 id="源码-递归"><a href="#源码-递归" class="headerlink" title="源码(递归)"></a>源码(递归)</h2><pre><code class="lang-c++">class Solution {
+public:
+    bool isTwoSym(TreeNode* l, TreeNode* r) {
+        if(l == NULL || r == NULL) { // 两个节点中含有NULL节点
+            return l == r;
+        }else {
+            return l-&gt;val == r-&gt;val &amp;&amp; isTwoSym(l-&gt;left, r-&gt;right) &amp;&amp; isTwoSym(l-&gt;right, r-&gt;left);
+        }
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(root == NULL) return true;
+        if(root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL) return true;
+        // ↑ 单根节点情况
+        if((root-&gt;left == NULL &amp;&amp; root-&gt;right != NULL) || (root-&gt;right == NULL &amp;&amp; root-&gt;left != NULL)) return false;
+        // ↑ 根节点下只有一个节点情况
+        return isTwoSym(root-&gt;left, root-&gt;right);
+    }
+};
+</code></pre>
+<h2 id="源码-深度优先搜索"><a href="#源码-深度优先搜索" class="headerlink" title="源码(深度优先搜索)"></a>源码(深度优先搜索)</h2><pre><code class="lang-c++">class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(root == NULL) return true; // 如果根节点是空节点则返回true
+        stack&lt;TreeNode*&gt; st1, st2; // 将节点储存在栈中
+        st1.push(root-&gt;left); // 将根节点左右的节点压入栈中
+        st2.push(root-&gt;right);
+        while(!st1.empty() &amp;&amp; !st2.empty()) { // 在任意一个栈为空时停止循环
+            TreeNode* cur1 = st1.top();
+            TreeNode* cur2 = st2.top();
+            st1.pop();
+            st2.pop();
+            if((cur1 == NULL &amp;&amp; cur2 != NULL) || (cur1 != NULL &amp;&amp; cur2 == NULL)) return false;
+            if(cur1 != NULL) {
+                if(cur1-&gt;val != cur2-&gt;val) return false;
+                st1.push(cur1-&gt;left); // 左节点先压入左 后压入右
+                st1.push(cur1-&gt;right);
+                st2.push(cur2-&gt;right); // 右节点先压入右 后压入左
+                st2.push(cur2-&gt;left);
+            }
+        }
+        return true;
+    }
+};
+</code></pre>

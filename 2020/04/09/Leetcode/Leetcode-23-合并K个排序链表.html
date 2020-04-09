@@ -1,0 +1,54 @@
+<hr>
+<p>title: Leetcode 23.合并K个排序链表<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>链表</li>
+<li>优先队列<br>categories: Leetcode<br>mathjax: false<br>date: 2019-05-04 20:11:49</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
+<p><strong>示例:</strong></p>
+<pre><code class="lang-markdown">输入:
+[
+  1-&gt;4-&gt;5,
+  1-&gt;3-&gt;4,
+  2-&gt;6
+]
+输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>同 <a href="https://pinyako.github.io/2019/05/04/Leetcode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">Leetcode 21.合并两个有序链表</a>, 将所有节点放入优先队列后建新表.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">struct comp{ // 自定义排序函数
+    bool operator()(ListNode* &amp;a, ListNode* &amp;b) {
+        return a-&gt;val &gt; b-&gt;val;
+    }
+};
+
+class Solution {
+public:
+    priority_queue&lt;ListNode*, vector&lt;ListNode*&gt;, comp&gt; q; // 用优先队列储存节点
+
+    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
+        if(lists.size() == 0) return NULL; // 如果数组为空则返回NULL
+        ListNode* it;
+        for(int i=0; i&lt;lists.size(); ++i) { // 遍历所有表并将每个表中所有节点存入优先队列
+            it = lists[i];
+            while(it != NULL) {
+                q.push(it);
+                it = it-&gt;next;
+            }
+        }
+        if(q.size() == 0) return NULL; // 如果数组中只有空节点则返回NULL
+        ListNode* res = q.top();
+        q.pop();
+        it = res;
+        while(q.size() != 0) {
+            it-&gt;next = q.top();
+            it = it-&gt;next;
+            q.pop();
+        }
+        it-&gt;next = NULL; // ***将最后一个节点的next设为NULL***
+        return res;
+    }
+};
+</code></pre>

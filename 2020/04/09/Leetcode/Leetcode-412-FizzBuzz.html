@@ -1,0 +1,52 @@
+<hr>
+<p>title: Leetcode 412.FizzBuzz<br>hide: true<br>date: 2019-04-17 23:37:47<br>tags:</p>
+<pre><code>- C++
+- Leetcode
+- 字符串
+- 筛法
+</code></pre><h2 id="categories-Leetcode"><a href="#categories-Leetcode" class="headerlink" title="categories: Leetcode"></a>categories: Leetcode</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个程序，输出从 1 到 n 数字的字符串表示。</p>
+<pre><code>1. 如果 n 是3的倍数，输出“Fizz”；
+
+2. 如果 n 是5的倍数，输出“Buzz”；
+
+3. 如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
+</code></pre><p><strong>示例：</strong></p>
+<pre><code>n = 15,
+
+返回:
+[
+    &quot;1&quot;,
+    &quot;2&quot;,
+    &quot;Fizz&quot;,
+    &quot;4&quot;,
+    &quot;Buzz&quot;,
+    &quot;Fizz&quot;,
+    &quot;7&quot;,
+    &quot;8&quot;,
+    &quot;Fizz&quot;,
+    &quot;Buzz&quot;,
+    &quot;11&quot;,
+    &quot;Fizz&quot;,
+    &quot;13&quot;,
+    &quot;14&quot;,
+    &quot;FizzBuzz&quot;
+]
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>筛素法类似思想, 先初始化所有元素为空字符串, 之后将3的倍数的元素加上”Fizz”, 5的倍数的元素加上”Buzz”, 后遍历整个数组并将数组中空的字符串赋值为次序.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    vector&lt;string&gt; fizzBuzz(int n) { //筛选法
+        vector&lt;string&gt; res;
+        res.resize(n);
+        for(int i=1; i&lt;=n/3; ++i) {
+            res[i*3-1] += &quot;Fizz&quot;;
+        }
+        for(int i=1; i&lt;=n/5; ++i) {
+            res[i*5-1] += &quot;Buzz&quot;;
+        }
+        for(int i=0; i&lt;n; ++i) {
+            if(res[i] == &quot;&quot;) res[i]+=to_string(i+1);
+        }
+        return res;
+    }
+};
+</code></pre>

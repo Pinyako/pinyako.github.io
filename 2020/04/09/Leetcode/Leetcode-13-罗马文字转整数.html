@@ -1,0 +1,74 @@
+<hr>
+<p>title: Leetcode 13.罗马文字转整数<br>hide: true<br>date: 2019-04-26 13:01:44<br>tags: </p>
+<pre><code>- C++
+- Leetcode
+- 字符串
+</code></pre><p>categories: Leetcode</p>
+<h2 id="mathjax-false"><a href="#mathjax-false" class="headerlink" title="mathjax: false"></a>mathjax: false</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。</p>
+<pre><code class="lang-markdown">字符          数值
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+</code></pre>
+<p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。</p>
+<p>数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
+<pre><code class="lang-markdown">I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。
+C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+</code></pre>
+<p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code class="lang-markdown">输入: &quot;III&quot;
+输出: 3
+</code></pre>
+<p><strong>示例 2:</strong></p>
+<pre><code class="lang-markdown">输入: &quot;IV&quot;
+输出: 4
+</code></pre>
+<p><strong>示例 3:</strong></p>
+<pre><code class="lang-markdown">输入: &quot;IX&quot;
+输出: 9
+</code></pre>
+<p><strong>示例 4:</strong></p>
+<pre><code class="lang-markdown">输入: &quot;LVIII&quot;
+输出: 58
+解释: L = 50, V= 5, III = 3.
+</code></pre>
+<p><strong>示例 5:</strong></p>
+<pre><code class="lang-markdown">输入: &quot;MCMXCIV&quot;
+输出: 1994
+解释: M = 1000, CM = 900, XC = 90, IV = 4.
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题中可知如果某一位字母的下一位比其本身大, 则是一个<strong>合成数</strong>, 例如CM, XC, IV等.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    unordered_map&lt;char, int&gt; m; // 用哈希表储存每个字母所对应的数字
+    // 因为不需要遍历表, 所以使用哈希表提高读取速度.
+    int romanToInt(string s) {
+        m[&#39;I&#39;] = 1;
+        m[&#39;V&#39;] = 5;
+        m[&#39;X&#39;] = 10;
+        m[&#39;L&#39;] = 50;
+        m[&#39;C&#39;] = 100;
+        m[&#39;D&#39;] = 500;
+        m[&#39;M&#39;] = 1000;
+        int result = 0; // 数字总和
+        for(int i=0; i&lt;s.length(); ++i) { // 遍历输入的字符串
+            if(m[s[i]] &lt; m[s[i+1]]) { // 如果某个字母的下一个字母数字要比其大则为合成数
+                result += (m[s[i+1]] - m[s[i]]);
+                // cout&lt;&lt;(m[s[i+1]] - m[s[i]])&lt;&lt;&quot; ! &quot;&lt;&lt;i&lt;&lt;endl;
+                ++i; // 避免重复遍历
+                continue;
+            }
+            result += m[s[i]];
+            // cout&lt;&lt;m[s[i]]&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;endl;
+        }
+        return result;
+    }
+};
+</code></pre>

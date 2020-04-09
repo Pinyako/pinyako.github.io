@@ -1,0 +1,67 @@
+<hr>
+<p>title: Leetcode 389.找不同<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>位运算</li>
+<li>动态规划<br>categories: Leetcode<br>mathjax: false<br>date: 2019-04-29 19:04:27</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个字符串 s 和 t，它们只包含小写字母。</p>
+<p>字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。</p>
+<p>请找出在 t 中被添加的字母。</p>
+<p><strong>示例:</strong></p>
+<pre><code>输入：
+s = &quot;abcd&quot;
+t = &quot;abcde&quot;
+
+输出：
+e
+
+解释：
+&#39;e&#39; 是那个被添加的字母。
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>不用位运算的做法是遍历字符串t, 将t中每一个字符的出现次数存入哈希表, 而后遍历字符串s, 减去每个字符出现次数, 找到那个出现次数为1的字符.</p>
+<p>使用位运算做法则是初始化结果res为0, 对s和t的每一位与res取异或, 最后res的值便是多出来的字符.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution { // 不用位运算
+public:
+    unordered_map&lt;char, int&gt; m;
+    string::iterator it;
+    char findTheDifference(string s, string t) {
+        for(char c=&#39;a&#39;; c&lt;=&#39;z&#39;; ++c) { // 初始化哈希表m
+            m[c] = 0;
+        }
+
+        it = t.begin();
+
+        while(it != t.end()) {
+            m[*it] = m[*it]+1;
+            it++;
+        }
+
+        it = s.begin();
+
+        while(it != s.end()) {
+            m[*it] = m[*it]-1;
+            it++;
+        }
+
+        for(char c=&#39;a&#39;; c&lt;=&#39;z&#39;; ++c) {
+            if(m[c] != 0) return c;
+        }
+        return 0;
+    }
+};
+</code></pre>
+<pre><code class="lang-c++">class Solution { // 使用位运算
+public:
+    char findTheDifference(string s, string t) {
+        char c = 0; // 初始化结果res为0
+        s.push_back(0); // 统一s和t的字符数
+        for(int i=0; i&lt;t.size(); ++i) {
+            c ^= s[i]; // 对res和s[i]取异或
+            c ^= t[i]; // 对res和t[i]取异或
+        }
+        return c;
+    }
+};
+</code></pre>

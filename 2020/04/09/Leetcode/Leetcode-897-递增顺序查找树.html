@@ -1,0 +1,70 @@
+<hr>
+<p>title: Leetcode 897.递增顺序查找树<br>hide: true<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>Leetcode</li>
+<li>二叉树</li>
+<li>递归<br>categories: Leetcode<br>mathjax: false<br>date: 2019-04-29 19:39:39</li>
+</ul>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。</p>
+<p><strong>示例:</strong></p>
+<pre><code>输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]
+
+      5
+      / \
+    3    6
+  / \    \
+  2   4    8
+/        / \
+1        7   9
+
+输出：[1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+
+1
+  \
+  2
+    \
+    3
+      \
+      4
+        \
+        5
+          \
+          6
+            \
+            7
+              \
+              8
+                \
+                9
+</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>使用递归中序储存节点至vector中, 后重新构建树.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    vector&lt;TreeNode*&gt; nodes;
+    void iterate(TreeNode* root) {
+        if(root == NULL) { // 如果节点为空则返回
+            return;
+        }else { // 节点不为空
+            iterate(root-&gt;left); // 中序遍历左子树储存节点
+            nodes.push_back(root); // 储存本节点
+            iterate(root-&gt;right); // 中序遍历右子树储存节点
+            return;
+        }
+    }
+
+    TreeNode* increasingBST(TreeNode* root) {
+        iterate(root); // 
+        TreeNode* res = nodes[0];
+        res-&gt;left = NULL;
+        TreeNode* it = res;
+        for(int i=1; i&lt;nodes.size(); ++i) {
+            it-&gt;right = nodes[i];
+            it-&gt;left = NULL;
+            it = it-&gt;right;
+        }
+        it-&gt;left = NULL;
+        return res;
+    }
+};
+</code></pre>

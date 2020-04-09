@@ -1,0 +1,39 @@
+<hr>
+<p>title: Leetcode 9.回文数<br>hide: true<br>date: 2019-04-26 13:01:12<br>tags:</p>
+<pre><code>- C++
+- Leetcode
+- 字符串
+</code></pre><p>categories: Leetcode</p>
+<h2 id="mathjax-false"><a href="#mathjax-false" class="headerlink" title="mathjax: false"></a>mathjax: false</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code class="lang-markdown">输入: 121
+输出: true
+</code></pre>
+<p><strong>示例 2:</strong></p>
+<pre><code class="lang-markdown">输入: -121
+输出: false
+解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+</code></pre>
+<p><strong>示例 3:</strong></p>
+<pre><code class="lang-markdown">输入: 10
+输出: false
+解释: 从右向左读, 为 01 。因此它不是一个回文数。
+</code></pre>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先负数一定不是回文数, 其次一位数一定是回文数. 两位数以上则可以取每一位数字后对比.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x&lt;0) return false; //负数不是回文数.
+        if(x&lt;10) return true; //一位数是回文数.
+        if(double(x)/10 == x/10) return false; //最后一位为0的不是回文数.
+        int n = log10(x)+1; //取位数
+        // cout&lt;&lt;n&lt;&lt;endl;
+        unsigned int num = 0;
+        for(int i=1; i&lt;=n; ++i) {
+            int temp = x%int(pow(10, i))/int(pow(10, i-1));
+            num += temp*pow(10, n-i);
+        }
+        return num == x;
+    }
+};
+</code></pre>
