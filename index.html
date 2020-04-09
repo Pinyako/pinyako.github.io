@@ -347,278 +347,9 @@
   <section id="posts" class="posts-expand">
     
       
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/Linear_Algebra_MIT/1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pinyako">
-      <meta itemprop="description" content="Just a pineapple.">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pinyako's blog">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/04/08/Linear_Algebra_MIT/1/" class="post-title-link" itemprop="url">Lecture 1. The Geometry of Linear Equations</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-08 16:43:11" itemprop="dateCreated datePublished" datetime="2020-04-08T16:43:11+08:00">2020-04-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-04-09 22:29:13" itemprop="dateModified" datetime="2020-04-09T22:29:13+08:00">2020-04-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
       
         
-          
-            <h2 id="线性方程式"><a href="#线性方程式" class="headerlink" title="线性方程式"></a>线性方程式</h2><p>线性方程式组由一组线性方程组合而成. 比如:</p>
-<script type="math/tex; mode=display">
-2x-y=0 \\
--x+2y=3</script><p>而上述的线性方程组以矩阵的语言来描述, 则是:</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-    2 & -1 \\
-    -1 & 2
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    y
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-3
-\end{bmatrix}
-\\
-Ax=b</script><p>其中, $A$是方程组的系数矩阵, $x$为未知变量组成的(列)向量, $b$为常量向量.<br>而后, 有了矩阵我们便可以做出矩阵的图像.</p>
-<h2 id="二阶矩阵的行向量图像"><a href="#二阶矩阵的行向量图像" class="headerlink" title="二阶矩阵的行向量图像"></a>二阶矩阵的行向量图像</h2><p><img src="/2020/04/08/Linear_Algebra_MIT/1/2020-04-08-23-19-09.png" alt></p>
-<p>而求解这个线性方程组的一个几个方法则是, 将$2x-y=0$与$-x+-2y=3$的图像画出来, 找到两个线的交点. 这一交点就是满足两个线性方程的解.</p>
-<p><img src="/2020/04/08/Linear_Algebra_MIT/1/2020-04-08-22-58-56.png" alt></p>
-<h2 id="二阶矩阵的列向量图像"><a href="#二阶矩阵的列向量图像" class="headerlink" title="二阶矩阵的列向量图像"></a>二阶矩阵的列向量图像</h2><p>而另一种矩阵的向量图像是列向量的图像, 而列向量的图像更能体现线性代数的本质.</p>
-<p>在用列向量描述时, 原方程组变形为以下形式:</p>
-<script type="math/tex; mode=display">
-x
-\begin{bmatrix}
-    2 \\ 1
-\end{bmatrix}
-+
-y
-\begin{bmatrix}
-    -1 \\ 2
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 \\ 3
-\end{bmatrix}</script><p>则求解向量<br>$\begin{bmatrix}<br>    2\-1\end{bmatrix}$<br>与向量<br>$\begin{bmatrix}<br>    -1\\2<br>\end{bmatrix}$<br>的怎样的<strong>线性组合</strong>可以得到向量<br>$\begin{bmatrix}<br>    0 \\ 3<br>\end{bmatrix}$.</p>
-<p>如图所示, 我们可以发现$x = 1$, $y=2$.</p>
-<p><img src="/2020/04/08/Linear_Algebra_MIT/1/2020-04-08-23-23-08.png" alt></p>
-<p>也就是一个$v_1=(2, -1)^T$ 加上两个$v_2=(-1, 2)^T$.</p>
-<h2 id="所有的线性组合"><a href="#所有的线性组合" class="headerlink" title="所有的线性组合"></a>所有的线性组合</h2><p>如果我们取两个列向量的所有线性组合, 我们会得到什么呢?</p>
-<p>事实上, 如果我们取一对二维的向量, 求这对向量的所有线性组合的集合, 所得到的结果有三种:</p>
-<ol>
-<li>这两个向量是不共线的非零向量, 此时会得到一整个二维平面.</li>
-<li>这两个向量共线或者其中一个是零向量, 此时只会得到一条与其中一个向量共线的直线.</li>
-<li>这两个向量都为零向量, 则此时只会得到原点.</li>
-</ol>
-<p>几何上来看, 如果有两个不共线的非零向量 $v_1$ 与 $v_2$, 其中一个向量可以分为两个相互正交的分量 $(v_2 =x_0 + y_0), x_0 \perp y_0$  , 其中有一个分量$(x_0)$是和另一个向量相垂直的. 这样, 那个向量$(v_1)$和与相垂直的的分量$(x_0)$可以取线性组合, 其线性组合的集合是整个$\Bbb{R}^2$空间.</p>
-<p>而在两个向量共线或其中一个向量是零向量时, 一个向量无法分出垂直于另一个向量的分量, 所以无法取到整个$\Bbb{R}^2$空间, 其线性组合只能取到与向量共线的直线上的所有点.</p>
-<p>在两个向量均为零向量时, 无论如何去线性组合, 都不会离开原点, 则其线性组合只能取到原点.</p>
-<h2 id="三阶矩阵的列向量图像"><a href="#三阶矩阵的列向量图像" class="headerlink" title="三阶矩阵的列向量图像"></a>三阶矩阵的列向量图像</h2><p>在分析二元一次方程式组后, 我们继续看三元一次方程式组, 如下便是一个”好”的三元一次方程式组:</p>
-<script type="math/tex; mode=display">
-2x - y=0 \\
--x+2y-z=-1 \\
--3y+4z=4</script><p>其中, 每一个方程对应着$\Bbb{R}^3$中的一个平面. 如图:<br><img src="/2020/04/08/Linear_Algebra_MIT/1/2020-04-09-00-07-27.png" alt></p>
-<p>而求解这三个方程则要找到其中三个平面的交点.</p>
-<p>但是没有软件来绘图我们很难去想象一个三维的空间其中有三个平面交于某一点.所以我们使用列向量与矩阵.</p>
-<p>其列向量的图像为:</p>
-<p><img src="/2020/04/08/Linear_Algebra_MIT/1/2020-04-09-00-18-06.png" alt></p>
-<p>用矩阵来描述则是:</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-    2 & -1 & 0\\
-    -1 & 2 & -1 \\
-    0 & -3 & 4
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    y \\
-    z
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 \\
-    -1 \\
-    4
-\end{bmatrix}
-\\
-\bold{Ax=b}</script><p>同样的, 我们用线性组合来形容$Ax=b$, 则是如下形式:</p>
-<script type="math/tex; mode=display">
-x
-\begin{bmatrix}
-    2 \\ -1 \\ 0
-\end{bmatrix}
-+
-y
-\begin{bmatrix}
-    -1 \\ 2 \\ -3
-\end{bmatrix}
-+
-z
-\begin{bmatrix}
-    0 \\ -1 \\ 4
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 \\ -1 \\ 4
-\end{bmatrix}</script><p>事实上, 例子的矩阵$A$与右侧常量$b$选的很好所以很容易就能看出:</p>
-<script type="math/tex; mode=display">
-x=0\\
-y=0\\
-z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事实上此处是相等但是可以将相等看做是共线的一种),<br>此时只要$x$, $y$取0时, 则可以得到答案.</p>
-<h2 id="求解所有Ax-b"><a href="#求解所有Ax-b" class="headerlink" title="求解所有Ax=b"></a>求解所有Ax=b</h2><p>那么我们进一步思考, 对于任何右侧常数项$b$, 我们是否可以求出所有$Ax=b$?</p>
-<p>也就是, 三个列向量通过线性组合, 是否可以得到$\Bbb{R^3}$ 上面的任何一点?</p>
-<p>如果有, 这三个列向量需要满足怎样的条件?</p>
-<p>如果没有, 这三个列向量又要满足什么条件?</p>
-<p>如果我们求三个向量的线性组合, 其结果则有以下的可能性:</p>
-<ol>
-<li>任意两个非共线的向量线性组合后得到一个平面, 第三个向量不与平面相平行, 也就是它可以分出一个垂直于平面的分量, 则三个向量的线性组合可以得到整个$\Bbb{R^3}$</li>
-<li>有两个向量非共线, 其线性组合得到一个平面, 但是第三个向量与平面平行(或为零向量), 无法分出一个垂直于平面的分量. 此时, 其线性组合所得到的是$\Bbb{R^3}$中的一个平面.</li>
-<li>一个向量与其他两个向量共线(或为零向量), 此时, 只能得到$\Bbb{R^3}$中与向量共线的一条直线</li>
-<li>三个向量均为零向量, 得到原点.</li>
-</ol>
-<p>事实上, 用消元法, 我们可以检测一个矩阵是否可以求解任何$Ax=b$.</p>
-<p>如果三个向量的线性组合可以覆盖整个$\Bbb{R^3}$, 则称这三个向量<strong>线性无关</strong>.如果其中一个向量是其他两个向量的线性组合, 则称这三个向量线性相关.</p>
-<p>当某个<strong>方阵</strong>中的列向量均线性无关, 则称这个方阵是<strong>非奇异</strong>的.<br>如果方阵中某一个列向量可以用其他列向量求线性组合所得到, 则称这个方阵是<strong>奇异</strong>的.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -788,8 +519,10 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1008,7 +741,7 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
 </table>
 </div>
 <!-- 
-    <div id="aplayer-gOLSYePW" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-TTIsLnrb" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="5875075150" data-server="tecent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#66ccff"
     ></div> -->
 
@@ -1051,8 +784,10 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1240,8 +975,10 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1432,8 +1169,10 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1592,8 +1331,10 @@ z=1</script><p>也就是第三个向量$v_3$与右侧常量向量$b$共线(事�
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1777,8 +1518,10 @@ empty() -- 返回栈是否为空
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -1959,8 +1702,10 @@ empty() -- 返回栈是否为空
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -2139,8 +1884,10 @@ empty() -- 返回栈是否为空
   </article>
 
 
+      
     
       
+        
 
   
 
@@ -2316,6 +2063,7 @@ empty() -- 返回栈是否为空
   </article>
 
 
+      
     
   </section>
 
