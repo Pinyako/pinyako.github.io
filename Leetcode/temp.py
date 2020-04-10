@@ -1,15 +1,18 @@
+def copy_string(text):
+    a = ''
+    s = len(text)
+    for i in text:
+        if i == 'o':
+            print('return here')
+            return
+        a += i
+    else:
+        print(a[s-1])
 
-import os
-import sys
-
-lst = [i for i in os.listdir() if str(i).find('.md') != -1]
-
-for name in lst:
-    print(name)
-    lines = open(name, 'r', encoding='UTF-8').readlines()
-    for i, n in enumerate(lines):
-        print(str(n))
-        if str(n) == 'tags:\n':
-            lines.insert(i+1, '  - hide\n')
-            break
-    open(name, 'w', encoding='UTF-8').writelines(lines)
+if __name__ == '__main__':
+    text = 'Helloworld'
+    try:    
+        copy_string(text)
+    except Exception as e:
+        print(e)
+        
