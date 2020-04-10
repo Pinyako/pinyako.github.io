@@ -96,18 +96,14 @@
 
 
 
-  <meta name="description" content="题目描述给定两个字符串 s 和 t，它们只包含小写字母。 字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。 请找出在 t 中被添加的字母。 示例: 输入： s = &amp;quot;abcd&amp;quot; t = &amp;quot;abcde&amp;quot;  输出： e  解释： &amp;#39;e&amp;#39; 是那个被添加的字母。 题目分析不用位运算的做法是遍历字符串t, 将t中每一个字符的出现次数存入">
-<meta name="keywords" content="C++,Leetcode,位运算,动态规划">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 389.找不同">
-<meta property="og:url" content="http://yoursite.com/2019/04/29/Leetcode-389-找不同/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Pinyako&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/Linear_Algebra_MIT/2/index.html">
 <meta property="og:site_name" content="Pinyako&#39;s blog">
-<meta property="og:description" content="题目描述给定两个字符串 s 和 t，它们只包含小写字母。 字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。 请找出在 t 中被添加的字母。 示例: 输入： s = &amp;quot;abcd&amp;quot; t = &amp;quot;abcde&amp;quot;  输出： e  解释： &amp;#39;e&amp;#39; 是那个被添加的字母。 题目分析不用位运算的做法是遍历字符串t, 将t中每一个字符的出现次数存入">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T11:12:40.000Z">
+<meta property="og:updated_time" content="2020-04-10T09:27:42.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 389.找不同">
-<meta name="twitter:description" content="题目描述给定两个字符串 s 和 t，它们只包含小写字母。 字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。 请找出在 t 中被添加的字母。 示例: 输入： s = &amp;quot;abcd&amp;quot; t = &amp;quot;abcde&amp;quot;  输出： e  解释： &amp;#39;e&amp;#39; 是那个被添加的字母。 题目分析不用位运算的做法是遍历字符串t, 将t中每一个字符的出现次数存入">
+<meta name="twitter:title" content="Pinyako&#39;s blog">
 
 
 
@@ -115,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/29/Leetcode-389-找不同/">
+  <link rel="canonical" href="http://yoursite.com/Linear_Algebra_MIT/2/">
 
 
 
@@ -125,7 +121,7 @@
   };
 </script>
 
-  <title>Leetcode 389.找不同 | Pinyako's blog</title>
+  <title> | Pinyako's blog</title>
   
 
 
@@ -359,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/Leetcode-389-找不同/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linear_Algebra_MIT/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pinyako">
@@ -376,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 389.找不同
+          <h1 class="post-title" itemprop="name headline">
 
               
             
@@ -402,34 +398,12 @@
                 
               
 
-              <time title="创建时间：2019-04-29 19:04:27 / 修改时间：19:12:40" itemprop="dateCreated datePublished" datetime="2019-04-29T19:04:27+08:00">2019-04-29</time>
+              <time title="创建时间：2020-04-10 17:27:42" itemprop="dateCreated datePublished" datetime="2020-04-10T17:27:42+08:00">2020-04-10</time>
             
 
-            
-              
-
-              
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -459,23 +433,7 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个字符串 s 和 t，它们只包含小写字母。</p>
-<p>字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。</p>
-<p>请找出在 t 中被添加的字母。</p>
-<p><strong>示例:</strong></p>
-<pre><code>输入：
-s = &quot;abcd&quot;
-t = &quot;abcde&quot;
-
-输出：
-e
-
-解释：
-&#39;e&#39; 是那个被添加的字母。
-</code></pre><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>不用位运算的做法是遍历字符串t, 将t中每一个字符的出现次数存入哈希表, 而后遍历字符串s, 减去每个字符出现次数, 找到那个出现次数为1的字符.</p>
-<p>使用位运算做法则是初始化结果res为0, 对s和t的每一位与res取异或, 最后res的值便是多出来的字符.</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 不用位运算</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">    <span class="built_in">string</span>::iterator it;</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c=<span class="string">'a'</span>; c&lt;=<span class="string">'z'</span>; ++c) &#123; <span class="comment">// 初始化哈希表m</span></span><br><span class="line">            m[c] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        it = t.begin();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(it != t.end()) &#123;</span><br><span class="line">            m[*it] = m[*it]+<span class="number">1</span>;</span><br><span class="line">            it++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        it = s.begin();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(it != s.end()) &#123;</span><br><span class="line">            m[*it] = m[*it]<span class="number">-1</span>;</span><br><span class="line">            it++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c=<span class="string">'a'</span>; c&lt;=<span class="string">'z'</span>; ++c) &#123;</span><br><span class="line">            <span class="keyword">if</span>(m[c] != <span class="number">0</span>) <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span> <span class="comment">// 使用位运算</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> c = <span class="number">0</span>; <span class="comment">// 初始化结果res为0</span></span><br><span class="line">        s.push_back(<span class="number">0</span>); <span class="comment">// 统一s和t的字符数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;t.size(); ++i) &#123;</span><br><span class="line">            c ^= s[i]; <span class="comment">// 对res和s[i]取异或</span></span><br><span class="line">            c ^= t[i]; <span class="comment">// 对res和t[i]取异或</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
       
     </div>
 
@@ -496,18 +454,6 @@ e
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
-            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
-          
-            <a href="/tags/位运算/" rel="tag"># 位运算</a>
-          
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
-          
-        </div>
-      
 
       
       
@@ -517,8 +463,8 @@ e
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/29/Leetcode-338-比特位计数/" rel="next" title="Leetcode 338.比特位计数">
-                <i class="fa fa-chevron-left"></i> Leetcode 338.比特位计数
+              <a href="/Leetcode/" rel="next" title="Leetcode Problem Set">
+                <i class="fa fa-chevron-left"></i> Leetcode Problem Set
               </a>
             
           </div>
@@ -526,10 +472,6 @@ e
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/29/Leetcode-537-复数乘法/" rel="prev" title="Leetcode 537.复数乘法">
-                Leetcode 537.复数乘法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,17 +515,8 @@ e
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -600,7 +533,7 @@ e
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -733,23 +666,6 @@ e
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

@@ -36,7 +36,7 @@
 dp(m, n)=
 \begin{cases}
 1& \text{m == 1 || n == 1}\\\\
-dp(m-1, n) + dp(m, n-1)& \text{m > 1 \&\& n >1}
+dp(m-1, n) + dp(m, n-1)& \text{m > 1 \& \& n >1}
 \end{cases}</script><p>但是用递归解决这个问题在m, n较大时会存在效率低的问题, 因为有些m, n的情况被重复计算, 这样我们可以使用一个数组来存放计算结果, 在遇到重复计算时便可以从数组之中直接得到值.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="lang-c++">
 int num[10000][10000] = {0}; // 初始化所有元素为0
